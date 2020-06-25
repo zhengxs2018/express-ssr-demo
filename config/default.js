@@ -10,6 +10,7 @@ module.exports = {
   API_PREFIX: process.env.API_PREFIX || '',
 
   // json web token
+  PASSWORD_HASH_SALT_LENGTH: process.env.PASSWORD_HASH_SALT_LENGTH || 10,
   JWT_SECRET: process.env.JWT_SECRET || 's3cret',
 
   // Database settings

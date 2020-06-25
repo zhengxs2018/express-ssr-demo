@@ -8,6 +8,7 @@ const { isEmail } = require('validator')
 const omit = require('lodash/omit')
 
 const defineModel = require('../../database/model')
+const { preSave } = require('../../database/helpers/audit-helper')
 
 /**
  * The User schema.
@@ -119,6 +120,7 @@ schema.plugin(fieldEncryption, {
 
 schema.final = ret => {
   const awsService = require('../services/AWS')
+
   ret.headUrl = awsService.signUrl(ret.headUrl)
   ret.insuranceCards = (ret.insuranceCards || []).map(v => {
     v.frontPhoto = awsService.signUrl(v.frontPhoto)
@@ -129,4 +131,10 @@ schema.final = ret => {
   return omit(ret, 'passwordHash')
 }
 
-module.exports = defineModel('User', schema)
+schema.pre('save', function() {
+  return preSave(this, User, User)
+})
+
+const User = defineModel('User', schema)
+
+module.exports = User
