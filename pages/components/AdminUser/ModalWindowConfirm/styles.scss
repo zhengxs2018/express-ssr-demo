@@ -1,0 +1,74 @@
+@import '../../../styles/_variables.scss';
+
+
+.modal-confirm {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    
+    .modal-content {
+        width: 420px;
+        background: #fff;
+        padding: 30px 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        .title {
+            color: #555d7e;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.29px;
+            margin-bottom: 5px;
+        }
+        .txt {
+            color: #555d7e;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            line-height: 24px;
+        }
+        textarea {
+            width: 289px;
+            height: 68px;
+            margin-bottom: 20px;
+            margin-top: -20px;
+            resize: none;
+        }
+        input {
+            width: 289px;
+            margin-bottom: 20px;
+            margin-top: -20px;
+        }
+        .bottom-btn {
+            a {
+                display: inline-block;
+                height: 32px;
+                line-height: 32px;
+                width: 90px;
+                font-size: 14px;
+                font-weight: 700;
+                margin-right: 14px;
+                text-align: center;
+                border-radius: 32px;
+            }
+            .btn-yes {
+                background-color: #097ade;
+                color: #ffffff;
+                &.disabled {
+                    background-color: #83bbee;
+                    pointer-events: none;
+                }
+            }
+            .btn-cancel {
+                color: #137ade;
+                border: 1px solid #137ade;
+                background-color: #ffffff;
+            }
+        }
+    }
+}

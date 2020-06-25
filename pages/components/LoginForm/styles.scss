@@ -1,0 +1,49 @@
+@import '../../styles/_variables.scss';
+
+.login-form {
+    width: 335px;
+    .error-txt {
+        color: #f00;
+    }
+    //.inputs
+    .inputs {
+            height: 50px;
+            background-color: $gray;
+            margin-bottom: 20px;
+            &.mb11 {
+                margin-bottom: 11px;
+            }
+            input {
+                font-weight: 400;
+                font-size: 16px;
+                background: none;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                line-height: 20px;
+                background-color: transparent;
+            }
+            &.icon-lefts {
+                padding-left: 46px;
+                .icons {
+                    width: 46px;
+                    height: 46px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    &.icon-email {
+                        background: url(/mail.svg) center center no-repeat;
+                        background-size: 20px auto;
+                        width: 46px;
+                        height: 46px;
+                    }
+                    &.icon-password {
+                        background: url(/lock.svg) center center no-repeat;
+                        background-size: 16px auto;
+                        width: 46px;
+                        height: 46px;
+                    }
+                }
+            }
+    }
+}

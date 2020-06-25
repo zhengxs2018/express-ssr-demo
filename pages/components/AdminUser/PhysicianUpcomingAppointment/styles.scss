@@ -1,0 +1,56 @@
+@import '../../../styles/_variables.scss';
+
+.panel-list {
+    &.upcomimg-list {
+        margin-top: 30px;
+        .blue-link {
+            color: #097ade;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+        .five-panel {
+            &.recently-view {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                .item-wrap {
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    &:nth-child(4n) {
+                        .items {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                .items {
+                    margin-right: 20px;
+                    
+                }
+            }
+        }
+        .items {
+            min-height: 142px;
+            cursor: default;
+            .today-txt {
+                color: #979cb2;
+                font-size: 12px;
+                font-weight: 400;
+            }
+            .time {
+                color: #3f5c76;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.17px;
+                line-height: 18px;
+            }
+        }
+    }
+    .bottom-link {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+        .blue-link {
+            font-size: 13px;
+        }
+    }
+}

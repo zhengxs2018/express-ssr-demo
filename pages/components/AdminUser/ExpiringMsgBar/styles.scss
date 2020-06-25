@@ -1,0 +1,22 @@
+@import '../../../styles/_variables.scss';
+
+// .expiring-msg-bar
+.expiring-msg-bar {
+    padding: 12px 22px;
+    min-height: 40px;
+    position: fixed;
+    z-index: 888;
+    top: 10px;
+    left: 50%;
+    margin-left: -404px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(63,92,118,0.9);
+    border-radius: 20px;
+    width: 648px;
+    .txt {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.28px;
+    }
+}

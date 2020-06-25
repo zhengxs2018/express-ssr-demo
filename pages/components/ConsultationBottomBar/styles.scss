@@ -1,0 +1,92 @@
+@import '../../styles/_variables.scss';
+
+//.bottom-navs
+.bottom-navs {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    min-height: 90px;
+    background-color: $gray;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        li {
+            margin: 0 1px;
+            .btn-items {
+                height: calc(100%);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .icons {
+                    margin-top: 5px;
+                    width: 32px;
+                    height: 32px;
+                    margin-bottom: 8px;
+                    &.icon-progress {
+                        background: url(/medical-report.svg) center center no-repeat;
+                        background-size: 26px auto;
+                    }
+                    &.icon-problem {
+                        background: url(/note.svg) center center no-repeat;
+                        background-size: 29px auto;
+                    }
+                    &.icon-medical {
+                        background: url(/history-nav.svg) center center no-repeat;
+                        background-size: 24px auto;
+                    }
+                    &.icon-surgical {
+                        background: url(/scalpel.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                    &.icon-medications {
+                        background: url(/prescription.svg) center center no-repeat;
+                        background-size: 30px auto;
+                    }
+                    &.icon-fhistory {
+                        background: url(/family.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                    &.icon-social {
+                        background: url(/healthy.svg) center center no-repeat;
+                        background-size: 22px auto;
+                    }
+                    &.icon-vitals {
+                        background: url(/lifeline-heart-outline.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                    &.icon-sleep {
+                        background: url(/book.svg) center center no-repeat;
+                        background-size: 26px auto;
+                    }
+                    &.icon-other-labs {
+                        background: url(/test-tube.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                    &.icon-home-care {
+                        background: url(/shelter.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                    &.icon-pap {
+                        background: url(/check.svg) center center no-repeat;
+                        background-size: 32px auto;
+                    }
+                }
+                .txt {
+                    color: $blue;
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 14px;
+                    max-width: 100px;
+                    line-height: 15px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

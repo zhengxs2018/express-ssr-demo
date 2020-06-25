@@ -1,0 +1,112 @@
+@import '../../../styles/_variables.scss';
+.quick-link-section {
+    padding-top: 33px;
+    .section-title {
+        margin-bottom: 14px;
+    }
+}
+
+// .links-list
+.links-list {
+    flex-wrap: wrap;
+    .gray-items {
+        flex: 0 0 140px;
+        max-width: 140px;
+        margin-bottom: 10px;
+        display: flex;
+        height: 142px;
+        background-color: #ecf0fa;
+        flex-direction: column;
+        padding: 30px 10px 12px;
+        justify-content: center;
+        margin-right: 20px;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 3px;
+        &.current,
+        &:hover {
+            background-color: #137ade;
+            .bottom-txt {
+                .blue-txt {
+                    color: #fff;
+                }
+            }
+            .icons {
+                fill: #fff;
+            }
+            .icon-required {
+                background: url(/shopping-list-white.svg) center center no-repeat;
+                background-size: 30px 40px;
+            }
+            .icon-patient-edu {
+                background: url(/open-book-white.svg) center center no-repeat;
+                background-size: 40px 33px;
+            }
+            .icon-push {
+                background: url(/notification-white.svg) center center no-repeat;
+                background-size: 40px 40px;
+            }
+            .icon-insurance {
+                background: url(/medical-insurance-white.svg) center center no-repeat;
+                background-size: 35px 40px;
+            }
+            .icon-audio {
+                background: url(/folder-talk-white.svg) center center no-repeat;
+                background-size: 40px 37px;
+            }
+            .icon-patient {
+                background: url(/files-white@2x.png) center center no-repeat;
+                background-size: 37px 40px;
+            }
+        }
+        .icons {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        .icon-required {
+            background: url(/shopping-list.svg) center center no-repeat;
+            background-size: 30px 40px;
+        }
+        .icon-patient-edu {
+            background: url(/open-book.svg) center center no-repeat;
+            background-size: 40px 33px;
+        }
+        .icon-push {
+            background: url(/notification.svg) center center no-repeat;
+            background-size: 40px 40px;
+        }
+        .icon-insurance {
+            background: url(/medical-insurance.svg) center center no-repeat;
+            background-size: 35px 40px;
+        }
+        .icon-audio {
+            background: url(/folder-talk.svg) center center no-repeat;
+            background-size: 40px 37px;
+        }
+        .icon-patient {
+            background: url(/files@2x.png) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .bottom-txt {
+            max-width: 88px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+            text-align: center;
+            .blue-txt {
+                color: #097ade;
+            }
+            .red-txt {
+                color: #ff5757;
+                text-align: center;
+            }
+        }
+        .blue-txt {
+            color: #097ade;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+        }
+    }
+}

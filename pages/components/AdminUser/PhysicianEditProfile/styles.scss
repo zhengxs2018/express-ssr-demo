@@ -1,0 +1,78 @@
+@import '../../../styles/_variables.scss';
+
+.right-aside {
+    .photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 120px;
+        background: red;
+        margin: 25px auto 20px;
+        position: relative;
+        img {
+            width: 120px;
+            height: 120px;
+            border-radius: 120px;
+            overflow: hidden;
+        }
+        .file-photo {
+            display: block;
+            position: absolute;
+            right: -2px;
+            bottom: 0;
+            width: 32px;
+            height: 32px;
+            background: url('/camera-bg.png');
+            background-size: 100%;
+            border-radius: 32px;
+            input {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+    }
+    .list-links {
+        margin-bottom: 20px;
+        li {
+            margin-bottom: 5px;
+            a {
+                color: #3f5c76;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: 0.17px;
+                line-height: 24px;
+            }
+            .color-blue {
+                color: #137ade;
+                &.disabled {
+                    color: #979cb2;
+                    cursor: default;
+                }
+            }
+        }
+    }
+    .bottom-btn {
+        .btn {
+                display: inline-block;
+                min-width: auto;
+                font-weight: 700;
+                font-size: 14px;
+                &.btn-blue {
+                    margin-right: 10px;
+                    height: 32px;
+                    line-height: 32px;
+                    padding: 1px 20px;
+                    text-transform: none;
+                }
+        }
+        .btn-blue-border {
+            border-radius: 16px;
+            padding: 1px 20px;
+            line-height: 28px;
+            height: 32px;
+            background-color: #fff;
+            border: 1px solid #137ade;
+            color: #137ade;
+        }
+    }
+}

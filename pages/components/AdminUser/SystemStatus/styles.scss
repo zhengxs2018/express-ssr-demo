@@ -1,0 +1,72 @@
+@import '../../../styles/_variables.scss';
+
+.white-panel {
+    background-color: #fff;
+    padding: 20px 30px;
+    &.rights {
+        min-height: 398px;
+        flex: 1;
+        padding: 17px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .titles {
+            color: #3f5c76;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        .bottom-txt {
+            margin-top: 12px;
+            color: #3f5c76;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.17px;
+            line-height: 20px;
+            .littler {
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+        .btn-green {
+            padding: 1px 10px;
+            width: 100%;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.14px;
+            background-color: #20c997;
+            line-height: 28px;
+            margin: 10px 0;
+        }
+        .list-done {
+            .txt-area {
+                margin-top: 8px;
+                position: relative;
+                padding-left: 26px;
+                color: #3f5c76;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 20px;
+                .icons {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    &.icon-done {
+                        background: url(/patient-assets/completed.svg) center center no-repeat;
+                        background-size: 16px 16px;
+                        width: 16px;
+                        height: 16px;
+                        &.gray {
+                            background: url(/patient-assets/uncompleted.svg) center center no-repeat;
+                            background-size: 16px 16px;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

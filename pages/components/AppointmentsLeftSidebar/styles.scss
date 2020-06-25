@@ -1,0 +1,106 @@
+@import '../../styles/_variables.scss';
+
+//.left-nav
+.left-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $white;
+    width: 60px;
+    z-index: 888;
+    .navs {
+        ul {
+            li {
+                .btn-items {
+                    margin: 10px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 10px 0;
+                    position: relative;
+                    &.current {
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                            top: 9px;
+                            width: 4px;
+                            height: 64px;
+                            border-radius: 0 2px 2px 0;
+                            background-color: $blue;
+                        }
+                        .icons {
+                            &.icon-home {
+                                background: url(/home-active.svg) center center no-repeat;
+                                background-size: 32px auto;
+                            }
+                            &.icon-patients {
+                                background: url(/band-aids-active.svg) center center no-repeat;
+                                background-size: 32px auto;
+                            }
+                            &.icon-calender {
+                                background: url(/deadline-active.svg) center center no-repeat;
+                                background-size: 32px auto;
+                            }
+                        }
+                    }
+                    .icons {
+                        margin-bottom: 14px;
+                        width: 32px;
+                        height: 32px;
+                        &.icon-home {
+                            background: url(/home-default.svg) center center no-repeat;
+                            background-size: 32px auto;
+                        }
+                        &.icon-patients {
+                            background: url(/band-aids-default.svg) center center no-repeat;
+                            background-size: 32px auto;
+                        }
+                        &.icon-calender {
+                            background: url(/deadline.svg) center center no-repeat;
+                            background-size: 32px auto;
+                        }
+                    }
+                    .txt {
+                        line-height: 14px;
+                        color: #90aee8;
+                        font-size: 11px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    .user-btn {
+        text-align: center;
+        position: fixed;
+        left: 12px;
+        bottom: 36px;
+        z-index: 9;
+        background: #90aee8;
+        width: 36px;
+        height: 36px;
+        border-radius: 100%;
+        overflow: hidden;
+        img {
+            width: 21px;
+        }
+    }
+    .logout{
+        position: absolute;
+        bottom: 10px;
+        font-size: 12px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: $blue;
+        cursor: pointer;
+        &:hover{
+            color: #093F72;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import '../../../styles/_variables.scss';
+
+// .top-info-bar
+.top-info-bar {
+    padding: 12px 22px;
+    height: 40px;
+    position: fixed;
+    z-index: 888;
+    top: 10px;
+    left: 50%;
+    margin-left: -162px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(63,92,118,0.9);
+    border-radius: 20px;
+    width: 324px;
+    &.reset-password {
+        width: 567px;
+        margin-left: -284px;
+        .lefts {
+            .icon-white-trash {
+                display: none;
+            }
+            .icon-done {
+                display: inline-block;
+            }
+        }
+    }
+    .lefts {
+        .icon-white-trash {
+            width: 14px;
+            height: 16px;
+            background: url(/white-trash.svg) center center no-repeat;
+            background-size: 14px 16px;
+            margin-right: 8px;
+            margin-top: -2px;
+            display: inline-block;
+        }
+        .icon-done {
+            width: 16px;
+            height: 16px;
+            background: url(/green-check.svg) center center no-repeat;
+            background-size: 16px 16px;
+            margin-right: 10px;
+            margin-top: -2px;
+            display: none;
+        }
+        .txt {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.28px;
+            .thin {
+                font-weight: 400;
+            }
+        }
+    }
+    .btn-close {
+        width: 10px;
+        height: 10px;
+        background: url(/white-close.svg) center center no-repeat;
+        background-size: 10px 10px;
+        margin-left: 9px;
+        opacity: 0.5;
+    }
+    .rights {
+        .line-txt {
+            .txt,
+            .undo {
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 0.24px;
+                color: #fff;
+            }
+            .line {
+                width: 1px;
+                background-color: #fff;
+                height: 13px;
+                margin: 0 5px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .undo {
+                text-decoration: underline;
+            }
+        }
+    }
+}

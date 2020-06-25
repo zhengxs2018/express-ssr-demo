@@ -1,0 +1,112 @@
+{
+  "appointmentsData": {
+    "notes": [
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-01T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-02T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-03T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-04T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-05T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-06T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-07T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-08T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-09T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-10T06:42:20.024Z"
+      },
+      {
+        "content": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "createdAt": "2020-04-11T06:42:20.024Z"
+      }
+    ],
+    "tasksAndReminders": [
+      {
+        "title": "Do something",
+        "date": "Today, Jul 29",
+        "readed": true
+      },
+      {
+        "title": "Get something done",
+        "date": "Today, Jul 29",
+        "readed": true
+      },
+      {
+        "title": "Weekly Meeting",
+        "date": "Jul 30, 8:00am - 10:00am",
+        "readed": false
+      },
+      {
+        "title": "Do something",
+        "date": "Jul 31",
+        "readed": true
+      },
+      {
+        "title": "Do something",
+        "date": "Aug 1",
+        "readed": true
+      },
+      {
+        "title": "Get something done",
+        "date": "Aug 3",
+        "readed": true
+      }
+    ],
+    "messages": [
+      {
+        "userName": "Sarah Doe",
+        "photoUrl": "message-user01.png",
+        "content": "<a href='javascript:;' className='blue-links'>David Banes</a> has requested CPAP Supply.",
+        "time": "10m",
+        "readed": false
+      },
+      {
+        "userName": "Sarah Doe",
+        "photoUrl": "message-user01.png",
+        "content": "Should I schedule your lunch with Dr.Sleepalways tom...",
+        "time": "20m",
+        "readed": false
+      },
+      {
+        "userName": "Admin",
+        "photoUrl": "message-user02.png",
+        "content": "System maintenance on Aug 3, 10:00pm - 12:00am",
+        "time": "12h",
+        "readed": true
+      },
+      {
+        "userName": "Sarah Doe",
+        "photoUrl": "message-user01.png",
+        "content": "<a href='javascript:;' className='blue-links'>John Snow</a> has requested prescription",
+        "time": "1d 5h",
+        "readed": true
+      }
+    ]
+  }
+}

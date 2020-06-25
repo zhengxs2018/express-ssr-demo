@@ -1,0 +1,385 @@
+@import '../../../styles/_variables.scss';
+// .resize-btn
+.resize-btn {
+    background: url(http://localhost:3001/resize-bar.svg) center center no-repeat;
+    background-size: 18px 22px;
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    left: auto;
+    top: 50%;
+    margin-top: -10px;
+    right: 272px;
+}
+// .checkbox-wrap
+.checkbox-wrap {
+  display: inline-block;
+  vertical-align: top;
+  input[type="checkbox"]{
+      display: none;
+  }
+  input[type="checkbox"]+label {
+      font-size: 14px;
+      color: #097ade;
+      display: inline-block;
+      font-weight: normal;
+      padding-left: 16px;
+      padding-top: 16px;
+      text-align: left;
+      position: relative;
+      line-height: 16px;
+      text-transform: none;
+      cursor: pointer;
+  }
+  label::before {
+      border-radius: 2px;
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      vertical-align: middle;
+      margin-right: 9px;
+      background: url(/icon-uncheck.svg) no-repeat;
+      background-size: 16px 16px;
+      position: absolute;
+      left: 0;
+      top: 1px;
+  }
+  input[type="checkbox"]:checked+label::before{
+      background: url(/icon-checked.svg) no-repeat;
+      background-size: 16px 16px;
+  }
+}
+.titles {
+    .rights {
+        .btn-add {
+            background: url(/add.svg) no-repeat;
+            background-size: 24px 24px;
+            width: 24px;
+            height: 24px;
+            input {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+        &.haveclose {
+            .btn-add {
+                position: relative;
+                display: inline-block;
+                top: auto;
+                right: auto;
+            }
+        }
+        .top-close {
+            background: #f4f6fa url(/close-icon.svg) 2px center no-repeat;
+            background-size: 24px 24px;
+            border-radius: 12px;
+            width: 30px;
+            height: 24px;
+            margin-right: -20px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-left: 15px;
+        }
+    }
+}
+// .two-drop
+.two-drop {
+    margin-top: 22px;
+    margin-bottom: 18px;
+    .drop-wrap {
+        position: relative;
+        .drop-btn {
+            color: #097ade;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.28px;
+        }
+        .icon-drop {
+            background: url(/drop-arrow.svg) center center no-repeat;
+            background-size: 9px 6px;
+            margin-left: 5px;
+            width: 15px;
+            height: 10px;
+        }
+        &.open {
+            .drop-panel {
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 150px;
+                min-height: 60px;
+                border-radius: 3px;
+                background-color: #fff;
+                margin-top: 2px;
+                padding: 15px 16px;
+                z-index: 888;
+                li {
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                .checkbox-wrap {
+                    input[type="checkbox"]+label {
+                        font-size: 14px;
+                        padding-left: 23px;
+                        padding-top: 1px;
+                        line-height: 16px;
+                    }
+                    label::before {
+                        width: 14px;
+                        height: 14px;
+                        vertical-align: middle;
+                        margin-right: 5px;
+                        border: 1px solid #097ade;
+                        position: absolute;
+                        left: 0;
+                        top: 1px;
+                        border-radius: 2px;
+                        background: none;
+                    }
+                    input[type="checkbox"]:checked+label::before{
+                        background: #097ade url(/check-white.svg) center center no-repeat;
+                        background-size: 16px 7px;
+                        border: 1px solid #097ade;
+                    }
+                }
+            }
+        }
+        .drop-panel {
+            display: none;
+        }
+    }
+    .icon {
+      margin-left: 16px;
+      &.asc{
+        -webkit-transform: rotate(270deg);
+            -ms-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      &.desc {
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+        margin-left: 10px;
+        img {
+            width: 7px;
+        }
+      }
+    }
+}
+
+.gray-box-list {
+    li {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .gray-box {
+            position: relative;
+            min-height: 82px;
+            background-color: rgba(244,246,250,0.5);
+            padding: 15px 25px 10px 35px;
+            border-radius: 3px;
+            .checkbox-wrap {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+            }
+            .top-tips {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 15px;
+                height: 15px;
+                &.open {
+                    .tip-panel {
+                        display: block;
+                    }
+                }
+                .tip-panel {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                    background-color: #ffffff;
+                    padding: 10px 11px;
+                    z-index: 555;
+                    width: 120px;
+                    li {
+                        margin-bottom: 10px;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                        .icons {
+                            width: 16px;
+                            height: 16px;
+                            margin-right: 9px;
+                            &.icon-download {
+                                background: url(/icon-download.svg) center center no-repeat;
+                                background-size: 16px 16px;
+                            }
+                            &.icon-print {
+                                background: url(/icon-print.svg) center center no-repeat;
+                                background-size: 16px 16px;
+                            }
+                            &.icon-send {
+                                background: url(/icon-send.svg) center center no-repeat;
+                                background-size: 16px 16px;
+                            }
+                            &.icon-trash {
+                                background: url(/icon-trash.svg) center center no-repeat;
+                                background-size: 16px 16px;
+                            }
+                        }
+                        .txt {
+                            color: #097ade;
+                            font-size: 12px;
+                            font-weight: 400;
+                            letter-spacing: 0.14px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+            .btn-more {
+                background: url(/more-vertical.svg) center center no-repeat;
+                background-size: 4px 16px;
+                width: 15px;
+                height: 16px;
+            }
+            .center-txt {
+                .blue-title {
+                    display: flex;
+                }
+                .icon-pdf {
+                    background: url(/icon-pdf@2x.png) center center no-repeat;
+                    background-size: 12px 16px;
+                    width: 16px;
+                    height: 16px;
+                    flex: 0 0 16px;
+                    margin-right: 5px;
+                }
+                .icon-audio {
+                    background: url(/audio-file@2x.png) center center no-repeat;
+                    background-size: 12px 16px;
+                    width: 16px;
+                    height: 16px;
+                    flex: 0 0 16px;
+                    margin-right: 5px;
+                }
+                .icon-video {
+                    background: url(/video-file@2x.png) center center no-repeat;
+                    background-size: 12px 16px;
+                    width: 16px;
+                    height: 16px;
+                    flex: 0 0 16px;
+                    margin-right: 5px;
+                }
+                .blue-link {
+                    color: #097ade;
+                    font-size: 14px;
+                    font-weight: 400;
+                    letter-spacing: 0.17px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .gray-txts {
+                    margin-top: 4px;
+                    .txt {
+                          height: 16px;
+                          color: #979cb2;
+                          font-size: 12px;
+                          font-weight: 400;
+                          letter-spacing: 0.14px;
+                          line-height: 16px;
+                    }
+                }
+            }
+            
+        }
+        .gray-bottom {
+            background-color: #f4f6fa;
+            padding: 11px 12px;
+            border-radius: 3px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            .icon-red-trash {
+                background: url(/icon-red-trash.svg) center center no-repeat;
+                background-size: 14px 16px;
+                width: 14px;
+                height: 16px;
+                margin-right: 9px;
+            }
+            .txt {
+                color: #979cb2;
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 0.14px;
+                line-height: 16px;
+            }
+        }
+    }
+    .blue-box {
+        .btn-close {
+            background: url(/white-close.svg) center center no-repeat;
+            background-size: 10px 10px;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
+
+.blue-box {
+    position: relative;
+    min-height: 70px;
+    background-color: #137ade;
+    padding: 13px 25px 15px 15px;
+    border-radius: 3px;
+    .white-title {
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.28px;
+    }
+    .tools {
+        margin-top: 15px;
+        .icons {
+            width: 16px;
+            height: 16px;
+            margin-right: 30px;
+            &.icon-download {
+                background: url(/white-download.svg) center center no-repeat;
+                background-size: 16px 16px;
+            }
+            &.icon-print {
+                background: url(/white-printer.svg) center center no-repeat;
+                background-size: 16px 16px;
+                &.disabled {
+                    background: url(/white-printer-disabled.svg) center center no-repeat;
+                    background-size: 16px 16px;
+                    pointer-events: none;
+                }
+            }
+            &.icon-send {
+                background: url(/white-send.svg) center center no-repeat;
+                background-size: 16px 16px;
+            }
+            &.icon-trash {
+                background: url(/white-trash.svg) center center no-repeat;
+                background-size: 14px 16px;
+            }
+        }
+    }
+}

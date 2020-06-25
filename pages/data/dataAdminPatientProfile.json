@@ -1,0 +1,119 @@
+{
+  "adminPatientProfileData": {
+    "profileBanner": {
+      "photoUrl": "/profile-photo.jpg",
+      "name": "Anne Sleepless",
+      "category": "Sleep Apnea",
+      "treatment": "CPAP Treatment",
+      "daysLeft": "46",
+      "address": "Parkway Mountain View, CA",
+      "email": "annasleepless@email.com",
+      "phone": "123-123-1234"
+    },
+    "quickLinks": {
+      "pendingNumber": "1"
+    },
+    "notes": [
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jul 28"
+      },
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jul 25"
+      },
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jun 30"
+      },
+      {
+        "description": "Consectetur adipiscing elit.",
+        "time": "Jun 30"
+      },
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jun 30"
+      },
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jun 30"
+      },
+      {
+        "description": "Lorem ipsum dolor sit amet, set consectetur adipiscing elit.",
+        "time": "Jun 30"
+      }
+    ],
+    "patientForms": [
+      {
+        "fileType": "pdf",
+        "fileName": "interpretation_filename",
+        "addedBy": "Dr.Sleepest",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": true
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "interpretation_filename",
+        "addedBy": "Dr.Sleepest",
+        "addedTime": "May 28, 2019 10:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "PAP compliance.pdf",
+        "addedBy": "Dr.Sleepest",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": true
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "PAP compliance.pdf",
+        "addedBy": "John Snow",
+        "addedTime": "Apr 28, 2019 9:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "audio",
+        "fileName": "Audio file lorem ipsum.mp3",
+        "addedBy": "System",
+        "addedTime": "Apr 20, 2019 9:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "video",
+        "fileName": "Recorded Session 001.mp4",
+        "addedBy": "System",
+        "addedTime": "Apr 20, 2019 9:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "Patient_From01.pdf",
+        "addedBy": "Anne Sleepless",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "Patient_From02.pdf",
+        "addedBy": "Anne Sleepless",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "Patient_From03.pdf",
+        "addedBy": "Anne Sleepless",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": false
+      },
+      {
+        "fileType": "pdf",
+        "fileName": "Patient_From04.pdf",
+        "addedBy": "Anne Sleepless",
+        "addedTime": "May 30, 2019 10:00 AM",
+        "requestedToDelete": false
+      }
+    ]
+  }
+}

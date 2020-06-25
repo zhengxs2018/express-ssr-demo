@@ -1,0 +1,71 @@
+@import '../../../styles/_variables.scss';
+
+.five-panel {
+    .items {
+        margin-top: 14px;
+        margin-right: 20px;
+        border-radius: 4px;
+        background-color: #fff;
+        min-height: 162px;
+        flex: 1;
+        text-align: center;
+        &:last-child {
+            margin-right: 0;
+        }
+        .num {
+            margin: 19px 0 10px;
+            color: #097ade;
+            font-size: 18px;
+            font-weight: 700;
+            &.orange {
+                color: #ffba00;
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+        .top-icon {
+            padding-top: 15px;
+            .icons {
+                width: 48px;
+                height: 48px;
+                &.icon-physicians {
+                    background: url(/icon-physicians.svg) center center no-repeat;
+                    background-size: auto;
+                }
+                &.icon-band-aids {
+                    background: url(/band-aids-default.svg) center center no-repeat;
+                    background-size: 48px 48px;
+                }
+                &.icon-parents-add {
+                    background: url(/icon-patients.svg) center center no-repeat;
+                    background-size: auto;
+                }
+                &.icon-chart-parent {
+                    background: url(/circle-parent.svg) center center no-repeat;
+                    background-size: auto;
+                }
+                &.icon-del-file {
+                    background: url(/icon-del-files.svg) center center no-repeat;
+                    background-size: auto;
+                }
+                
+            }
+        }
+        .txt {
+            .normal-txt {
+                color: #3f5c76;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.17px;
+                line-height: 20px;
+            }
+            .little-txt {
+                color: #3f5c76;
+                font-size: 11px;
+                font-weight: 400;
+                letter-spacing: 0.13px;
+                line-height: 24px;
+            }
+        }
+    }
+}

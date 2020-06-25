@@ -1,0 +1,143 @@
+{
+  "adminPhysicianProfileData": {
+    "profileBanner": {
+      "photoUrl": "/profile-man.jpg",
+      "name": "Daniel I. Rifkin",
+      "title": "MD, MPH, FAASM",
+      "email": "drifkin@ognomy.com",
+      "phone": "123-123-1234",
+      "dob": "3/13/86",
+      "progressStatus": "Received Sleep Test",
+      "lastSeen": "Wed 4/29/20 - 6d",
+      "provided": "United Health",
+      "id": "000000000032",
+      "expire": 14
+    },
+    "aboutBanner": {
+      "content": "I am the founder of the Sleep Medicine Centers of Western New York which was first established in 2002. Although I'm Board Certified in Neurology and Sleep Medicine, I focus the majority of my practice on the treatment of adult and pediatric sleep disorders such as sleep apnea, insomnia, narcolepsy, and restless legs among many others.\n\nIn addition, I am a Clinical Associate Professor of Neurology at UB where I teach students, residents, and fellows the joys of sleep medicine and engage in clinical research. I love what we do for patients and how much we can improve their lives. And as much as I enjoy helping our patients, I also enjoy working with our amazing staff and other providers. They are an incredibly smart bunch and they always manage to put a smile on my face!"
+    },
+    "upcomingAppointment": [
+      {
+        "photoUrl": "/photo_02.jpg",
+        "name": "Anne Sleepess",
+        "date": "Today",
+        "time": "10:00am -10:30am"
+      },
+      {
+        "photoUrl": "/photo_03.jpg",
+        "name": "Jane Snow",
+        "date": "Today",
+        "time": "11:00am -11:30am"
+      },
+      {
+        "photoUrl": "/photo_04.jpg",
+        "name": "Cordelia Swift",
+        "date": "Today",
+        "time": "1:00pm -1:30pm"
+      },
+      {
+        "photoUrl": "/photo_06.jpg",
+        "name": "Cynthia Stokes",
+        "date": "Tomorrow",
+        "time": "11:00am -11:30am"
+      },
+      {
+        "photoUrl": "/photo_02.jpg",
+        "name": "Anne Sleepess",
+        "date": "Today",
+        "time": "10:00am -10:30am"
+      },
+      {
+        "photoUrl": "/photo_03.jpg",
+        "name": "Jane Snow",
+        "date": "Today",
+        "time": "11:00am -11:30am"
+      },
+      {
+        "photoUrl": "/photo_04.jpg",
+        "name": "Cordelia Swift",
+        "date": "Today",
+        "time": "1:00pm -1:30pm"
+      },
+      {
+        "photoUrl": "/photo_06.jpg",
+        "name": "Cynthia Stokes",
+        "date": "Tomorrow",
+        "time": "11:00am -11:30am"
+      },
+      {
+        "photoUrl": "/photo_02.jpg",
+        "name": "Anne Sleepess",
+        "date": "Today",
+        "time": "10:00am -10:30am"
+      },
+      {
+        "photoUrl": "/photo_03.jpg",
+        "name": "Jane Snow",
+        "date": "Today",
+        "time": "11:00am -11:30am"
+      },
+      {
+        "photoUrl": "/photo_04.jpg",
+        "name": "Cordelia Swift",
+        "date": "Today",
+        "time": "1:00pm -1:30pm"
+      },
+      {
+        "photoUrl": "/photo_06.jpg",
+        "name": "Cynthia Stokes",
+        "date": "Tomorrow",
+        "time": "11:00am -11:30am"
+      }
+    ],
+    "availability": [
+      {
+        "weekDay": "Monday",
+        "timeList": [
+          {
+            "start": "9: 00 AM",
+            "end": "11: 00 AM"
+          },
+          {
+            "start": "1: 00 PM",
+            "end": "4: 00 PM"
+          }
+        ]
+      },
+      {
+        "weekDay": "Tuesday",
+        "timeList": [
+          {
+            "start": "9: 00 AM",
+            "end": "11: 00 AM"
+          }
+        ]
+      },
+      {
+        "weekDay": "Wednesday",
+        "timeList": [
+        ]
+      },
+      {
+        "weekDay": "Thursday",
+        "timeList": [
+        ]
+      },
+      {
+        "weekDay": "Friday",
+        "timeList": [
+        ]
+      },
+      {
+        "weekDay": "Saturday",
+        "timeList": [
+        ]
+      },
+      {
+        "weekDay": "Sunday",
+        "timeList": [
+        ]
+      }
+    ]
+  }
+}

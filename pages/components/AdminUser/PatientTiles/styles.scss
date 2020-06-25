@@ -1,0 +1,82 @@
+@import '../../../styles/_variables.scss';
+
+.right-some-panel {
+    flex-wrap: wrap;
+    margin-right: -20px;
+    &.flex-grid {
+        justify-content: flex-start;
+    }
+    .items {
+        width: 145px;
+        height: 126px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding: 24px 0 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .icons {
+            width: 40px;
+            height: 40px;
+        }
+        .icon-progress {
+            background: url(/medical-report.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-problem {
+            background: url(/note.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-medical {
+            background: url(/history-nav.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-surgical {
+            background: url(/scalpel.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-medications {
+            background: url(/prescription.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-family {
+            background: url(/family.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-social {
+            background: url(/healthy.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-vitals {
+            background: url(/lifeline-heart-outline.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-sleep {
+            background: url(/book.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-other-lab {
+            background: url(/test-tube.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-home-care {
+            background: url(/shelter.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .icon-pap {
+            background: url(/check.svg) center center no-repeat;
+            background-size: 37px 40px;
+        }
+        .blue-txt {
+            color: #097ade;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 18px;
+            max-width: 105px;
+        }
+    }
+}
