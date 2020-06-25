@@ -1,0 +1,31 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "search.followSymlinks": false,
+  "search.exclude": {
+    "**/.history/**": true,
+    "**/run/": true,
+    "**/public/uploads/**": true
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1500,
+  "files.exclude": {
+    ".history": true
+  },
+  "files.watcherExclude": {
+    "**/.history/**": true,
+    "**/run/": true,
+    "**/public/uploads/**": true
+  },
+  "cSpell.words": [
+    "ognomy",
+    "staticfile"
+  ],
+  "cSpell.ignoreWords": [
+  ],
+  "cSpell.ignorePaths": [
+    "**/.history/**",
+    "**/public/uploads/**",
+    "**/run/**",
+  ]
+}
