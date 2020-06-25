@@ -40,7 +40,7 @@ export default class PatientFormsRightSidebar extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClickHandler, false)
+    // document.addEventListener('click', this.handleOutsideClickHandler, false)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +50,7 @@ export default class PatientFormsRightSidebar extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClickHandler, false)
+    // document.removeEventListener('click', this.handleOutsideClickHandler, false)
   }
 
   handleFileChange(event) {

@@ -1,4 +1,4 @@
-import AdminUsersService from '../services/adminUsersService'
+import AdminUsersService from '../../ui/services/adminUsersService'
 
 /**
  * load appointment event

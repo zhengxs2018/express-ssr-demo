@@ -16,11 +16,11 @@ export default class Dropdown extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClick)
+    // document.addEventListener('mousedown', this.handleClick)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClick)
+    // document.removeEventListener('mousedown', this.handleClick)
   }
 
   /**

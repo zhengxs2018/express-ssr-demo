@@ -1,4 +1,4 @@
-import AdminDeleteRequestService from '../services/adminDeleteRequestService'
+import AdminDeleteRequestService from '../../ui/services/adminDeleteRequestService'
 
 /**
  * load appointment event

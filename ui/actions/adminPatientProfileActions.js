@@ -1,4 +1,4 @@
-import AdminPatientProfileService from '../services/adminPatientProfileService'
+import AdminPatientProfileService from '../../ui/services/adminPatientProfileService'
 
 /**
  * load appointment event

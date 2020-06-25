@@ -16,7 +16,7 @@ const apiInstance = axios.create({
 apiInstance.interceptors.request.use(
   config => {
     nprogress.start()
-    const authService = require('../services/authService').default
+    const authService = require('./authService').default
     const token = config.headers.token
     // eslint-disable-next-line no-param-reassign
     config.headers.Authorization = `Bearer ${authService.getJwtToken() || token}`
@@ -49,7 +49,7 @@ apiInstance.interceptors.response.use(
 
       // goto 401 if not login
       if (error.response.status === 401 && window.location.pathname !== '/') {
-        const authService = require('../services/authService').default
+        const authService = require('./authService').default
         authService.cleanAuth()
         window.location = '/'
         return Promise.resolve()

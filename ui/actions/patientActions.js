@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import PatientService from '../services/patientService'
+import PatientService from '../../ui/services/patientService'
 
 /**
  * load patients

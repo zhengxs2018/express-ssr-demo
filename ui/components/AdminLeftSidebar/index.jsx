@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import './styles.scss'
 import { withRouter } from 'react-router-dom'
 import UserHead from '../UserHead'
 import AuthService from '../../services/authService'
+import './styles.scss'
 
 class AdminLeftSidebar extends Component {
   constructor(props) {

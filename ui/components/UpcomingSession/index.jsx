@@ -8,7 +8,7 @@ import { ENABLE_MEETING_TIME } from '../../config'
 import { checkIsCanCancel, getName, getUid, LS_ACTIVE_APPOINTMENT, LStorage } from '../../services/utils'
 
 /**
- * moment time format
+ * momen../../../ui/services/utils
  * @type {string}
  */
 const H_FORMAT = 'hh:mm a'

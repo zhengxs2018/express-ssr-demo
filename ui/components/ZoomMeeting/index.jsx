@@ -87,16 +87,16 @@ export default class ZoomMeeting extends React.Component {
       .then(() => console.log('notify server successful'))
       .catch(e => console.error(e))
 
-    this.openAudioTimeHandler = setInterval(() => {
-      const joinByAudio = document.querySelector(
-        '#dialog-join > div:nth-child(4) > div > div > div:nth-child(1) > button'
-      )
-      if (!joinByAudio || joinByAudio.classList.contains('zm-btn--disabled')) {
-        return
-      }
-      joinByAudio.click()
-      this.clearAudioHandler()
-    }, 100)
+    // this.openAudioTimeHandler = setInterval(() => {
+    //   const joinByAudio = document.querySelector(
+    //     '#dialog-join > div:nth-child(4) > div > div > div:nth-child(1) > button'
+    //   )
+    //   if (!joinByAudio || joinByAudio.classList.contains('zm-btn--disabled')) {
+    //     return
+    //   }
+    //   joinByAudio.click()
+    //   this.clearAudioHandler()
+    // }, 100)
   }
 
   loadZoom(params) {

@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import AppointmentService from '../services/appointmentService'
+import AppointmentService from '../../ui/services/appointmentService'
 
 /**
  * load appointment event

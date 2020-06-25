@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes'
-import dataSvc from '../services/dataSvc'
+import dataSvc from '../../ui/services/dataSvc'
 
 // loads Data
 export function loadData(data) {

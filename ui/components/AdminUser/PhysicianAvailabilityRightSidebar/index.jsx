@@ -137,11 +137,11 @@ export default class PhysicianAvailabilityRightSidebar extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClickHandler, false)
+    // document.addEventListener('click', this.handleOutsideClickHandler, false)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClickHandler, false)
+    // document.removeEventListener('click', this.handleOutsideClickHandler, false)
   }
 
   // handleOutsideClick

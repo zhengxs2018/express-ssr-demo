@@ -1,4 +1,4 @@
-import AdminHomeService from '../services/adminHomeService'
+import AdminHomeService from '../../ui/services/adminHomeService'
 
 /**
  * load appointment event
