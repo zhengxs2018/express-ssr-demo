@@ -1,0 +1,81 @@
+{
+  "name": "express-ssr-demo",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "node -r ./setup.js ./server-ssr.js",
+    "inspect": "node --inspect -r ./setup.js ./server-ssr.js",
+    "dev": "nodemon -r ./setup.js ./server-ssr.js",
+    "debug": "nodemon --inspect -r ./setup.js ./server-ssr.js",
+    "build": "next build",
+    "lint": "prettier *.js \"{app,config,constants,database,pages}/**/*.js?(x)\" --check",
+    "format": "prettier *.js \"{app,config,constants,database,pages}/**/*.js?(x)\" --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js?(x)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.704.0",
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "compose-middleware": "^5.0.1",
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "get-parameter-names": "^0.3.0",
+    "http-errors": "^1.7.3",
+    "http-status-codes": "^1.4.0",
+    "joi": "^14.3.1",
+    "json-diff": "^0.5.4",
+    "lodash": "^4.17.15",
+    "mkdirp": "^1.0.4",
+    "mongoose": "^5.9.20",
+    "mongoose-field-encryption": "^3.0.4",
+    "morgan": "^1.10.0",
+    "ms": "^2.1.2",
+    "multer": "^1.4.2",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "superagent": "^5.2.2",
+    "validator": "^13.1.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.6",
+    "@types/http-errors": "^1.6.3",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/lodash": "^4.14.156",
+    "@types/mkdirp": "^1.0.1",
+    "@types/morgan": "^1.9.1",
+    "@types/ms": "^0.7.31",
+    "@types/serve-static": "^1.13.4",
+    "@types/superagent": "^4.1.7",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.0.8",
+    "nodemon": "^2.0.4",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=5"
+  },
+  "license": "UNLICENSED"
+}

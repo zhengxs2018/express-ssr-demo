@@ -1,0 +1,13 @@
+{
+  "delay": 1500,
+  "watch": [
+    "app",
+    "config",
+    "constants",
+    "database",
+    "next.config.js",
+    "server-http.js",
+    "server-ssr.js",
+    "setup.js"
+  ]
+}
