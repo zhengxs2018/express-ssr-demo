@@ -33,7 +33,6 @@ async function login(req, res) {
  * @param res the http response
  */
 async function sendVerificationCode(req, res) {
-  console.log('cc', req.query)
   await SecurityService.sendVerificationCode(req.query)
   res.end()
 }
