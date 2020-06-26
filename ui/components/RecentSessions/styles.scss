@@ -1,0 +1,111 @@
+@import '../../styles/_variables.scss';
+
+//panel
+.panel-white {
+    padding: 15px 15px;
+    min-height: 130px;
+    border-radius: 4px;
+    background-color: $white;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .user-photo {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    .blue-name {
+        padding-right: 48px;
+        min-width: 170px;
+        word-break: break-all;
+        color: $blue;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-bottom: 8px;
+    }
+    .r-txt{
+        margin-top: 4px;
+        font-size: 12px;
+        color: $blue;
+    }
+    .bottom-txt {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+    }
+    &.blue {
+        background-color: #ecf0fa;
+        .bottom-txt {
+            color: $blue;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.14px;
+            line-height: 24px;
+            display: inline-block;
+        }
+    }
+    &.history {
+        background: transparent;
+        &.flex {
+            flex-direction: column;
+            justify-content: center;
+        }
+        .icon-history {
+            background: url(/history.svg) center center no-repeat;
+            background-size: 32px auto;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+        }
+        .btn-show {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .txt {
+            color: $blue;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.24px;
+        }
+    }
+}
+
+//.recent-section
+.recent-section {
+    margin-top: 30px;
+}
+//.list-recent
+.list-recent {
+    margin-top: 14px;
+    li {
+        margin-right: 10px;
+        width: 21%;
+        &.show-more {
+            margin-right: 0;
+            width: 9.8%;
+        }
+        margin-bottom: 16px;
+    }
+    .list-recent-grid{
+        justify-content: flex-start;
+    }
+
+    .recent-root{
+        flex-direction: row;
+        flex-wrap: wrap;
+        .panel-recent{
+        }
+    }
+
+
+}

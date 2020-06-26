@@ -1,7 +1,15 @@
-import styles from './index.module.css'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 
-const Index = () => {
-  return <p className={styles.title}>11</p>
+function Home() {
+  return (
+    <div className="mod-empty">
+      <p>no data, you could add one</p>
+      <Link href="/edit">
+        <a>add a post</a>
+      </Link>
+    </div>
+  )
 }
 
-export default Index
+export default Home

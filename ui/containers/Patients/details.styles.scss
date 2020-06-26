@@ -1,0 +1,395 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/common-ui.scss';
+
+.patient-detail-root {
+  position: relative;
+  height: 100%;
+
+  .return-container {
+    padding-left: 40px;
+    margin-top: 29px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      margin-right: 8px;
+    }
+
+    font-size: 14px;
+    color: $fontColor
+  }
+
+  .content-root {
+    height: calc(100% - 150px);
+    @include scrollbars(6px, $blue, rgba(0, 0, 0, 0));
+
+    overflow-y: auto;
+  }
+
+  .card-root {
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+
+
+    .first-part {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: $black;
+      margin-bottom: 8px;
+
+      .flex1 {
+        flex: 1;
+      }
+
+      .edit-btn {
+        font-size: 14px;
+        color: $blue;
+        cursor: pointer;
+        margin-right: 16px;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      img {
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .content {
+      padding-left: 28px;
+      padding-top: 8px;
+
+
+      &.content-line {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &.card {
+        padding-top: 0;
+
+        .add-new-btn {
+          font-size: 14px;
+          font-weight: bold;
+          color: $blue;
+          cursor: pointer;
+          max-width: 140px;
+
+          &:hover {
+            opacity: 0.7;
+          }
+
+          margin-right: 32px;
+        }
+
+        .edit-card-root {
+          display: flex;
+          margin-bottom: 36px;
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      .form {
+        flex: 1;
+
+        .name {
+          color: $blue;
+          font-size: 14px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-weight: normal;
+        }
+
+        .file-icon {
+          width: 14px;
+          margin-right: 8px;
+        }
+
+        .status {
+          font-size: 12px;
+          color: $inputPlace;
+          margin-top: 4px;
+        }
+
+        .reason {
+          font-size: 12px;
+          color: $red;
+          margin-top: 4px;
+        }
+
+        .view-images {
+          margin-top: 4px;
+          font-size: 12px;
+          cursor: pointer;
+          color: $blue;
+        }
+
+        .buttons {
+          margin-top: 16px;
+          display: flex;
+          flex-direction: row;
+
+          .btn {
+            background-color: $green;
+            color: white;
+            font-weight: bold;
+            height: 34px;
+            border-radius: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-right: 8px;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.8;
+            }
+
+            &.reject {
+              background-color: $red;
+            }
+          }
+        }
+      }
+
+      .card {
+        margin-top: 12px;
+
+        .header {
+          font-size: 16px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+
+          span {
+            margin-right: 4px;
+          }
+        }
+
+        .sub-header {
+          font-size: 14px;
+          color: $fontColor;
+
+          .view-images {
+            cursor: pointer;
+            color: $blue;
+            margin-left: 16px;
+          }
+        }
+
+        .date {
+          margin-top: 2px;
+          font-size: 12px;
+          color: $fontColor;
+        }
+
+        .card-icon {
+          height: 12px;
+          margin-right: 12px;
+          width: auto;
+        }
+      }
+
+      .person-item {
+        display: flex;
+        flex: 1;
+
+        .user-head {
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          overflow: hidden;
+          margin-right: 12px;
+        }
+      }
+
+      .col-item {
+        flex: 1;
+
+        .header {
+          font-size: 16px;
+          font-weight: bold;
+          color: $black;
+          padding-right: 36px;
+          word-break: break-all;
+        }
+
+        .text {
+
+          &.email {
+            color: $blue
+          }
+
+          word-break: break-word;
+          padding-right: 36px;
+          margin-top: 4px;
+          font-size: 12px;
+          color: $fontColor
+        }
+      }
+    }
+  }
+
+  .user-big-name {
+    padding-top: 16px !important;
+  }
+}
+
+.reason-dialog {
+  height: 300px !important;
+
+  .reason-box {
+    resize: none;
+    outline: none;
+    border: none;
+    height: 80px;
+    background-color: $gray;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 12px;
+
+    &::placeholder {
+      color: $inputPlace
+    }
+  }
+
+  .btn-reject {
+    background-color: $red;
+
+    &.disabled {
+      background-color: $red;
+      opacity: 0.3;
+    }
+  }
+}
+
+.react-viewer-btn[data-key='reset'] {
+  display: none !important;
+}
+
+
+.print-root {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 36px;
+  page-break-before: always;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+
+    .flex1 {
+      flex: 1;
+    }
+
+    .print-btn {
+      font-weight: bold;
+      color: $blue;
+      font-size: 14px;
+      cursor: pointer;
+      margin-right: 32px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      @media print {
+        display: none;
+      }
+    }
+
+    margin-right: 32px;
+  }
+
+  .user-name {
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .part-container {
+    margin-top: 36px;
+
+    .title {
+      font-weight: bold;
+      font-size: 28px;
+      margin-right: 0;
+    }
+
+    img {
+      max-width: 60%;
+      height: 500px;
+    }
+
+    .form {
+      .file-name {
+        margin-top: 16px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .img-root {
+
+        div {
+          margin-bottom: 4px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+        img{
+          height: auto;
+        }
+        margin-bottom: 24px;
+      }
+    }
+
+    .card {
+      margin-bottom: 24px;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        margin-right: 0;
+        margin-left: 0;
+
+        &.head {
+          div {
+            font-weight: bold;
+          }
+        }
+
+        div {
+          margin-left: 4px;
+          margin-right: 4px;
+          width: 120px;
+          word-break: break-all;
+        }
+      }
+
+      .img {
+        margin-top: 16px;
+        position: relative;
+      }
+    }
+  }
+
+}

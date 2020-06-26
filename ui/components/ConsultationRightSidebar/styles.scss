@@ -1,0 +1,121 @@
+@import '../../styles/_variables.scss';
+
+.right-area {
+    overflow-y: auto;
+    padding: 30px 20px 0 20px;
+    position: fixed;
+    right: 0;
+    background: #fff;
+    height: calc(100% - 95px);
+    width: 283px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    .user-top {
+        text-align: center;
+        .user-photo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 14px;
+            border-radius: 100%;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .user-name {
+            color: $blue;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.29px;
+            margin-bottom: 11px;
+            line-height: 29px;
+            display: block;
+        }
+        .txt {
+            line-height: 21px;
+            color: $black;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.19px;
+        }
+    }
+    .four-panel {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -9px;
+        margin-top: 0;
+        .items {
+            flex: 0 0 46.1%;
+            margin: 0 9px 10px 0;
+            min-height: 120px;
+            border-radius: 4px;
+            background-color: $gray;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            .icons {
+                width: 40px;
+                height: 43px;
+                margin: 12px auto 12px;
+                &.icon-discharge {
+                    background: url(/medical-records.svg) center center no-repeat;
+                    background-size: 40px auto;
+                }
+                &.icon-patient {
+                    background: url(/form.svg) center center no-repeat;
+                    background-size: 36px auto;
+                }
+                &.icon-take {
+                    background: url(/notes.svg) center center no-repeat;
+                    background-size: 32px auto;
+                }
+                &.icon-prescribe {
+                    background: url(/drugs.svg) center center no-repeat;
+                    background-size: 40px auto;
+                }
+            }
+            .txt {
+                color: $blue;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 16px;
+                max-width: 78px;
+                display: block;
+            }
+        }
+    }
+    .btn-blue, 
+    .btn-blue:hover, 
+    .btn-blue:focus {
+        min-width: auto;
+        font-weight: 700;
+        line-height: 42px;
+        margin-bottom: 150px;
+        width: 100%;
+    }
+    // .right-bottom
+    .right-bottom {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 10px 23px 10px 19px;
+        width: calc(100%);
+        background-color: #fff;
+        .left-txt {
+            color: $black;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+        .blue-links {
+            color: $blue;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 24px;
+        }    
+    }
+}

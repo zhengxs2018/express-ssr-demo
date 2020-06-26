@@ -1,0 +1,56 @@
+{
+  "teleconsultData": {
+    "questionnaire": [
+      {
+        "question": "What bring you in today?",
+        "answer": "I want to have better sleep.",
+        "status": "answered"
+      },
+      {
+        "question": "What time do you go to bed?",
+        "answer": "",
+        "status": "typing"
+      },
+      {
+        "question": "What time do you wake up?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Is your sleep time different on your days off?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Do you snore?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Do you sweat at night?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Do you wake up with cough?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Do you wake up with chest pain?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+        "answer": "",
+        "status": ""
+      },
+      {
+        "question": "Lorem ipsum dolor sit?",
+        "answer": "",
+        "status": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "adminHomeData": {
+    "overview": {
+      "physicians": 5,
+      "patients": 460,
+      "newPatients": 46,
+      "patientsWithPendingItems": 25,
+      "deleteRequests": 5
+    },
+    "barChart": {
+      "totalAppointments": 150,
+      "completed": 100,
+      "upcoming": 20,
+      "barList": [
+        {
+          "month": "Jan",
+          "completed": 0,
+          "upcoming": 0,
+          "total": 0
+        },
+        {
+          "month": "Feb",
+          "completed": 4,
+          "upcoming": 0,
+          "total": 4
+        },
+        {
+          "month": "Mar",
+          "completed": 10,
+          "upcoming": 0,
+          "total": 10
+        },
+        {
+          "month": "Apr",
+          "completed": 16,
+          "upcoming": 0,
+          "total": 16
+        },
+        {
+          "month": "May",
+          "completed": 20,
+          "upcoming": 0,
+          "total": 20
+        },
+        {
+          "month": "Jun",
+          "completed": 24,
+          "upcoming": 0,
+          "total": 24
+        },
+        {
+          "month": "Jul",
+          "completed": 18,
+          "upcoming": 4,
+          "total": 22
+        },
+        {
+          "month": "Aug",
+          "completed": 0,
+          "upcoming": 14,
+          "total": 14
+        },
+        {
+          "month": "Sep",
+          "completed": 0,
+          "upcoming": 2,
+          "total": 2
+        },
+        {
+          "month": "Oct",
+          "completed": 0,
+          "upcoming": 3,
+          "total": 3
+        },
+        {
+          "month": "Nov",
+          "completed": 0,
+          "upcoming": 0,
+          "total": 0
+        },
+        {
+          "month": "Dec",
+          "completed": 0,
+          "upcoming": 0,
+          "total": 0
+        }
+      ]
+    },
+    "systemStatus": [
+      {
+        "name": "Web Portal"
+      },
+      {
+        "name": "OGNOMY Mobile App"
+      },
+      {
+        "name": "Servers"
+      },
+      {
+        "name": "APIs"
+      }
+    ]
+  }
+}

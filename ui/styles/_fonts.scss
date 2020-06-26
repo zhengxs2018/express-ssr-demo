@@ -1,0 +1,35 @@
+/* font face */
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/HeeboRegular.eot');
+    src: url('../fonts/HeeboRegular.eot') format('embedded-opentype'),
+         url('../fonts/HeeboRegular.woff2') format('woff2'),
+         url('../fonts/HeeboRegular.woff') format('woff'),
+         url('../fonts/HeeboRegular.ttf') format('truetype'),
+         url('../fonts/HeeboRegular.svg#HeeboRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/HeeboMedium.eot');
+    src: url('../fonts/HeeboMedium.eot') format('embedded-opentype'),
+         url('../fonts/HeeboMedium.woff2') format('woff2'),
+         url('../fonts/HeeboMedium.woff') format('woff'),
+         url('../fonts/HeeboMedium.ttf') format('truetype'),
+         url('../fonts/HeeboMedium.svg#HeeboMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/HeeboBold.eot');
+    src: url('../fonts/HeeboBold.eot') format('embedded-opentype'),
+         url('../fonts/HeeboBold.woff2') format('woff2'),
+         url('../fonts/HeeboBold.woff') format('woff'),
+         url('../fonts/HeeboBold.ttf') format('truetype'),
+         url('../fonts/HeeboBold.svg#HeeboBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}

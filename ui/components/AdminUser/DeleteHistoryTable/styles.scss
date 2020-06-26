@@ -1,0 +1,12 @@
+@import '../../../styles/_variables.scss';
+
+.table-area {
+    .bottom-link {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+        .blue-link {
+            font-size: 13px;
+        }
+    }
+}

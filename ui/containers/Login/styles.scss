@@ -1,0 +1,22 @@
+@import '../../styles/_variables.scss';
+
+//.login-boxs
+.login-boxs {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    .login-top {
+        margin-top: -178px;
+        .login-img {
+            width: 257px;
+            height: 55px;
+            margin-bottom: 163px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

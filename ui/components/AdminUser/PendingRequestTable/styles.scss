@@ -1,0 +1,32 @@
+@import '../../../styles/_variables.scss';
+
+// .pending-request-table
+.pending-request-table {
+  &.table-data {
+    .flex {
+      display: flex;
+      justify-content: center;
+    }
+    .btn-blue,
+    .btn-blue:hover, 
+    .btn-blue:focus {
+      display: inline-block;
+      margin: 0 4px;
+      min-width: auto;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      min-width: auto;
+      height: 30px;
+      line-height: 30px;
+    }
+    .bottom-link {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+        .blue-link {
+            font-size: 13px;
+        }
+    }
+  }
+}

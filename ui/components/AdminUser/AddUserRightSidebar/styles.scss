@@ -1,0 +1,44 @@
+@import '../../../styles/_variables.scss';
+
+.form-box {
+    padding-top: 23px;
+    .row-line {
+        margin-bottom: 17px;
+        .label-txt {
+            color: #3f5c76;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.17px;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+        .input-area {
+            .inputs {
+                height: 40px;
+                border: 1px solid #d9dbe0;
+                background-color: #ffffff;
+                width: 100%;
+                border-radius: 3px;
+                &.error {
+                    border-color: #f00;
+                }
+                input {
+                    height: 100%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }    
+    .bottom-btn {
+        .btn-blue {
+            width: auto;
+            padding: 1px 20px;
+            line-height: 32px;
+            height: 32px;
+            display: inline-block;
+            min-width: auto;
+            font-size: 14px;
+            text-transform: none;
+        }
+    }   
+}

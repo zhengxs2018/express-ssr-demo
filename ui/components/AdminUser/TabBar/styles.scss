@@ -1,0 +1,19 @@
+@import '../../../styles/_variables.scss';
+
+// .tab-navs
+.tab-navs {
+    margin-bottom: 30px;
+    .tab-itmes {
+        color: #097ade;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.17px;
+        line-height: 20px;
+        padding: 10px 0;
+        margin-right: 30px;
+        text-transform: capitalize;
+        &.current {
+            box-shadow: 0 -4px 0 0 #097ade inset;
+        }
+    }
+}

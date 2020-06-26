@@ -1,0 +1,61 @@
+@import '../../../styles/_variables.scss';
+.note-right-aside {
+    &.right-aside {
+        .inner {
+            padding-right: 6px;
+        }
+    }
+    
+}
+.note-list {
+    margin-top: 20px;
+    max-height: 390px;
+    overflow-y: auto;
+    border-bottom: 1px solid #d9dbe0;
+    &::-webkit-scrollbar {
+            width: 4px;  
+            height: auto; 
+        }
+        &::-webkit-scrollbar-thumb {
+              border-radius: 2px;
+        background: #097ade;
+        }
+        &::-webkit-scrollbar-track {
+        border-radius: 2px;
+        background: transparent;
+        }
+    .items {
+        margin-bottom: 13px;
+        position: relative;
+        padding-right: 40px;
+        .txt {
+            color: #555d7e;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.17px;
+            line-height: 20px;
+        }
+        .date {
+            color: #979cb2;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.14px;
+            line-height: 16px;
+        }
+        .btn-more {
+            background: url(/more-vertical.svg) center center no-repeat;
+            background-size: 4px 16px;
+            width: 15px;
+            height: 16px;
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+    }
+}
+.bottom-img {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,128 @@
+@import '../../styles/_variables.scss';
+
+
+.patient-root {
+  .tip {
+    margin-top: 16px;
+    padding-left: 10px;
+  }
+
+  .search-contain {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-input {
+      width: 220px;
+
+      &::placeholder {
+        color: $inputPlace;
+      }
+
+      border-radius: 4px;
+      outline: none;
+      border: none;
+      padding: 4px 4px 4px 8px;
+      font-size: 14px;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      position: absolute;
+      right: 4px;
+
+      img {
+        width: 14px;
+        height: 14px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .p-view-container {
+
+    .load-more {
+      padding-left: 10px;
+      font-size: 12px;
+      margin-top: 28px;
+      color: #90AEE8;
+      cursor: pointer;
+      width: 90px;
+      margin-bottom: 24px;
+    }
+
+    &.all {
+      margin-top: 40px;
+    }
+
+    padding-left: 30px;
+    padding-right: 30px;
+
+    position: relative;
+
+    .line {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .icon {
+        margin-left: 16px;
+        cursor: pointer;
+        &.asc{
+          transform: rotate(270deg);
+        }
+        &.desc {
+          transform: rotate(90deg);
+
+        }
+      }
+
+      .title {
+        flex: 1;
+        font-size: 20px;
+        color: #3f5c76;
+        font-weight: bold;
+      }
+
+      .arrow {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:active {
+          opacity: 0.7;
+        }
+
+        &.left {
+          transform: rotate(180deg);
+          margin-top: 1px;
+        }
+
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed ;
+        }
+      }
+    }
+
+    .patient-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 6px;
+
+      .item-container {
+        width: calc(20% - 20px);
+        border-radius: 4px;
+        margin: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: white;
+      }
+    }
+  }
+
+}

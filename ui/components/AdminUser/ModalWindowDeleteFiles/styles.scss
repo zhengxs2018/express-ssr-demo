@@ -1,0 +1,94 @@
+@import '../../../styles/_variables.scss';
+
+.modal-detele {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    .modal-content {
+        width: 420px;
+        background: #fff;
+        padding: 30px 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        .title {
+            color: #555d7e;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.29px;
+            margin-bottom: 5px;
+        }
+        .txt {
+            color: #555d7e;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .list {
+            margin-bottom: 25px;
+            li {
+                margin-bottom: 6px;
+                display: flex;
+                .icon {
+                    width: 16px;
+                    height: 16px;
+                }
+                .icon-pdf {
+                        width: 16px;
+            height: 16px;
+            background: url(/icon-pdf@2x.png) center center no-repeat;
+            background-size: 13px 16px;
+                }
+                .icon-audio {
+                        width: 16px;
+                        height: 16px;
+                        background: url(/audio-file@2x.png) center center no-repeat;
+                        background-size: 13px 16px;
+                }
+                .icon-video {
+                        width: 16px;
+            height: 16px;
+            background: url(/video-file@2x.png) center center no-repeat;
+            background-size: 13px 16px;
+                }
+                a {
+                    color: #097ade;
+                    font-size: 14px;
+                    font-weight: 400;
+                    letter-spacing: 0.17px;
+                    line-height: 20px;
+                    flex: 1;
+                    padding-left: 8px;
+                }
+            }
+        }
+        .bot-btn {
+            a {
+                display: inline-block;
+                height: 32px;
+                line-height: 32px;
+                width: 90px;
+                font-size: 14px;
+                font-weight: 700;
+                margin-right: 14px;
+                text-align: center;
+                border-radius: 32px;
+            }
+            .btn-delete {
+                background-color: #ff5757;
+                color: #ffffff;
+            }
+            .btn-cancel {
+                color: #137ade;
+                border: 1px solid #137ade;
+                background-color: #ffffff;
+            }
+        }
+    }
+}

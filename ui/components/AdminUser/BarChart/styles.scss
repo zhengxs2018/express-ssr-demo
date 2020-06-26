@@ -1,0 +1,108 @@
+@import '../../../styles/_variables.scss';
+
+.white-panel {
+    background-color: #fff;
+    padding: 20px 30px;
+    &.lefts {
+        min-height: 398px;
+        flex: 0 0 78%;
+        max-width: 78%;
+        margin-right: 20px;
+        .top-bar {
+            .icon-calender {
+                background: url(/deadline.svg) center center no-repeat;
+                background-size: 48px 48px;
+                width: 48px;
+                height: 48px;
+            }
+            .right-info {
+                .txt-area {
+                    margin-left: 18px;
+                }
+                .number {
+                    font-size: 18px;
+                    font-weight: 700;
+                    margin-bottom: 5px;
+                    &.green {
+                        color: #20c997;
+                    }
+                    &.blue {
+                        color: #097ade;
+                    }
+                }
+                .txt {
+                    color: #3f5c76;
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: 0.17px;
+                    line-height: 24px;
+                }
+                .item-info {
+                    margin-left: 44px;
+                }
+            }
+        }
+        .chart-area {
+            ul {
+                min-height: 290px;
+                align-items: flex-end;
+            }
+            li {
+                text-align: center;
+                width: 26px;
+            }
+            .txt {
+                color: #979cb2;
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 0.14px;
+            }
+            .color-bar {
+                position: relative;
+                width: 10px;
+                border-radius: 5px;
+                margin: auto;
+                height: 240px;
+                .num {
+                    position: absolute;
+                    top: -20px;
+                    left: -5px;
+                    color: #3f5c76;
+                    font-size: 12px;
+                    font-weight: 400;
+                    min-width: 19px;
+                    letter-spacing: 0.14px;
+                    text-align: center;
+                }
+                .green-height  {
+                    background-color: #20c997;
+                }
+                .color-wrap {
+                    position: relative;
+                    width: 10px;
+                    border-radius: 5px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    background-color: #20c997;
+                }
+                .blue-height {
+                    width: 100%;
+                    background-color: #097ade;
+                    align-items: flex-end;
+                    border-radius: 5px;
+                    &.bottom-line {
+                        border-bottom-left-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                    &.height-full {
+                        height: 100%;
+                        &.bottom-line {
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
