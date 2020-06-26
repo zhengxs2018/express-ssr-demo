@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PT from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import Link from 'next/link'
 import './styles.scss'
 
 /**
  * patients recently view component
  */
-export default class PatientsRecentlyView extends Component {
+class PatientsRecentlyView extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
@@ -56,9 +56,11 @@ export default class PatientsRecentlyView extends Component {
             {data.slice(numberPerPage * shownPageIndex, numberPerPage * (shownPageIndex + 1)).map((item, index) => (
               <div className="items" key={index}>
                 <div className="hover-blue">
-                  <NavLink to="/adminPatientProfile" className="btn btn-border">
+                  <Link href="/adminPatientProfile">
+                    <a className="btn btn-border">
                     View Profile
-                  </NavLink>
+                    </a>
+                  </Link>
                   <div className="bottom-tools">
                     <a href="javascript:;" className="icons icon-edit" />
                     <a href="javascript:;" className="icons icon-trash" onClick={() => this.props.deleteItem(index)} />
@@ -92,3 +94,5 @@ export default class PatientsRecentlyView extends Component {
 PatientsRecentlyView.propTypes = {
   data: PT.array,
 }
+
+export default PatientsRecentlyView

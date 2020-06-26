@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+
 import PT from 'prop-types'
-import { NavLink } from 'react-router-dom'
+
+import Link from 'next/link'
+
 import './styles.scss'
 
 /**
@@ -121,9 +124,11 @@ export default class DeleteHistoryTable extends Component {
           {data.slice(0, shownRowNumber).map((item, index) => (
             <div className="row-td" key={index}>
               <div className="col-td">
-                <NavLink className="spacing" to="/adminPatientProfile">
-                  {item.name}
-                </NavLink>
+                <Link href="/adminPatientProfile">
+                  <a className="spacing" >
+                    {item.name}
+                  </a>
+                </Link>
               </div>
               <div className="col-td">
                 <div className="spacing">

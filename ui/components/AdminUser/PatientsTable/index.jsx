@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PT from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import Link from 'next/link'
 import Dropdown from '../../Dropdown'
 import './styles.scss'
 
@@ -200,14 +200,18 @@ export default class PatientsTable extends Component {
               <div className="col-td">
                 <div className="spacing">
                   {type === 'Patient' && (
-                    <NavLink to="/adminPatientProfile" className="blue-links">
+                    <Link href="/adminPatientProfile" >
+                      <a className="blue-links">
                       {item.name}
-                    </NavLink>
+                      </a>
+                    </Link>
                   )}
                   {type !== 'Patient' && (
-                    <NavLink to={`/adminPhysicianProfile/${type}`} className="blue-links">
+                    <Link href={`/adminPhysicianProfile/${type}`}>
+                      <a className="blue-links">
                       {item.name}
-                    </NavLink>
+                      </a>
+                    </Link>
                   )}
                 </div>
               </div>

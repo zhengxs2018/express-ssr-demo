@@ -16,7 +16,15 @@ const Authorized = ({ children, roles, fallback }) => {
   const user = AuthService.getUser()
 
   if (isNil(user)) {
-    return isFunction(fallback) && fallback(false) || <Unauthorized message="Current is not allowed for anonymous user" />
+    const content = isFunction(fallback) && fallback(false)
+    console.log(content)
+    if (!content) {
+      Router.replace({
+        pathname: '/login',
+        query: { next: location.href },
+      })
+    }
+    return content || <Unauthorized message="Current is not allowed for anonymous user" />
   }
 
   if (size(roles) > 0 && intersection(user.roles || [], roles).length > 0) {
