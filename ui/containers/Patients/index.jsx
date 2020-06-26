@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import { withRouter } from 'react-router-dom'
 import patientActions from '../../actions/patientActions'
 import AppointmentsLeftSidebar from '../../components/AppointmentsLeftSidebar'
 import AppointmentsRightSidebar from '../../components/AppointmentsRightSidebar'
@@ -110,7 +109,7 @@ class Patients extends Component {
   }
 
   onUserClick(user) {
-    this.props.history.push(`/patients/${user.id}`)
+    this.props.history.push(`/patients/${user?.id}`)
   }
 
   openSearch() {
@@ -253,4 +252,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(Patients))
+export default connect(mapStateToProps, matchDispatchToProps)(Patients)

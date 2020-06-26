@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import PT from 'prop-types'
 import './styles.scss'
 import moment from 'moment'
@@ -173,4 +172,4 @@ UpcomingSession.propTypes = {
   upcoming: PT.array,
 }
 
-export default withRouter(UpcomingSession)
+export default UpcomingSession

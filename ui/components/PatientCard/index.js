@@ -17,12 +17,12 @@ export default class PatientCard extends Component {
             {getName(user)}
           </div>
           <div className="user-head">
-            <UserHead name={getName(user)} color="blue" url={user.headUrl} />
+            <UserHead name={getName(user)} color="blue" url={user?.headUrl} />
           </div>
         </div>
         <div className="flex1" />
-        <div className="uid">{getUid(user.uid)}</div>
-        <div className="t-tip">{user.treatmentTip}</div>
+        <div className="uid">{getUid(user?.uid)}</div>
+        <div className="t-tip">{user?.treatmentTip}</div>
       </div>
     )
   }

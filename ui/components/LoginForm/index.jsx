@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { withRouter } from 'react-router-dom'
 import './styles.scss'
 import { toast } from 'react-toastify'
 import AuthService, { AUTH_KEY } from '../../services/authService'
@@ -45,7 +44,7 @@ class LoginForm extends Component {
 
   openBindPage() {
     const auth = this.auth
-    AuthService.getNylasUrl(auth.user.id, auth.token)
+    AuthService.getNylasUrl(auth.user?.id, auth.token)
       .then(rsp => {
         LStorage.removeItem(NYLAS_RESULT)
         window.open(rsp.url)
@@ -96,12 +95,12 @@ class LoginForm extends Component {
 
   checkUserStatus(rsp) {
     this.auth = rsp
-    if (!rsp.user.bindNylas) {
+    if (!rsp?.user?.bindNylas) {
       this.gotobindNylas(rsp)
       return false
     }
 
-    if (!rsp.user.bindZoom && rsp.user.isZoomBusiness) {
+    if (!rsp?.user?.bindZoom && rsp?.user?.isZoomBusiness) {
       this.gotoBindZoom()
       return false
     }
@@ -264,9 +263,5 @@ class LoginForm extends Component {
     )
   }
 }
-
-LoginForm.propTypes = {}
-
-// export default withRouter(LoginForm)
 
 export default LoginForm

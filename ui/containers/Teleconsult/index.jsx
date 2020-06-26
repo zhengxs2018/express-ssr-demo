@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import appointmentActions from '../../actions/appointmentActions'
 import Questionnaire from '../../components/Questionnaire'
 import ConsultationRightSidebar from '../../components/ConsultationRightSidebar'
@@ -47,4 +46,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(Teleconsult))
+export default connect(mapStateToProps, matchDispatchToProps)(Teleconsult)

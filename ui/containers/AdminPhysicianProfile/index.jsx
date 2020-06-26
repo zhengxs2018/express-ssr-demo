@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, NavLink } from 'react-router-dom'
 import _ from 'lodash'
 import nprogress from 'nprogress'
+import Link from 'next/link'
 import adminPhysicianProfileActions from '../../actions/adminPhysicianProfileActions'
 import AdminLeftSidebar from '../../components/AdminLeftSidebar'
 import PhysicianProfileBanner from '../../components/AdminUser/PhysicianProfileBanner'
@@ -122,7 +122,7 @@ class AdminPhysicianProfile extends Component {
               <div className="paddings">
                 <div className="top-bar flex-grid">
                   <div className="left-back">
-                    <NavLink to="/adminUsers" className="icons icon-back" />
+                    <Link href="/adminUsers" className="icons icon-back" />
                     <span className="txt">All {userType !== 'Secretary' ? userType : 'Secretarie'}s</span>
                   </div>
                   <div className="rights flex">
@@ -174,4 +174,4 @@ const matchDispatchToProps = dispatch => ({
   adminPhysicianProfileActions: bindActionCreators({ ...adminPhysicianProfileActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(AdminPhysicianProfile))
+export default connect(mapStateToProps, matchDispatchToProps)(AdminPhysicianProfile)

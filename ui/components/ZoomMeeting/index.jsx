@@ -123,10 +123,10 @@ export default class ZoomMeeting extends React.Component {
           success() {
             ZoomMtg.join({
               meetingNumber: id,
-              userName: `${user.firstName} ${user.lastName}`,
+              userName: `${user?.firstName} ${user?.lastName}`,
               signature: res.result,
               apiKey: key,
-              userEmail: user.email,
+              userEmail: user?.email,
               passWord: password,
               success() {
                 that.openAudioAndVideo()

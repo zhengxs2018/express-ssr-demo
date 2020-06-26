@@ -69,9 +69,9 @@ export const pad = (num, size) => {
  * @return {string|*}
  */
 export const getName = user => {
-  const name = _.filter([user.firstName, user.lastName], v => (v || '').trim().length > 0).join(' ')
+  const name = _.filter([user?.firstName, user?.lastName], v => (v || '').trim().length > 0).join(' ')
   if ((name || '').trim().length === 0) {
-    return user.email
+    return user?.email
   }
   return name
 }
@@ -88,8 +88,9 @@ export const getUid = uid => pad(uid, 9)
  * @param user the user
  */
 export const getFullAdd = user =>
-  [user.address, user.city, user.state, user.zipcode].filter(v => (v || '').toString().trim().length > 0).join(', ') ||
-  'N/A'
+  [user?.address, user?.city, user?.state, user?.zipcode]
+    .filter(v => (v || '').toString().trim().length > 0)
+    .join(', ') || 'N/A'
 
 /**
  * get gender and age
@@ -97,11 +98,11 @@ export const getFullAdd = user =>
  */
 export const getGenderAndAge = user => {
   let age = null
-  if (user.dateOfBirth) {
-    age = `${-moment(user.dateOfBirth, BOD_FORMAT).diff(moment(), 'years')} years old`
+  if (user?.dateOfBirth) {
+    age = `${-moment(user?.dateOfBirth, BOD_FORMAT).diff(moment(), 'years')} years old`
   }
 
-  return [user.gender, age].filter(v => (v || '').trim().length > 0).join(', ') || 'N/A'
+  return [user?.gender, age].filter(v => (v || '').trim().length > 0).join(', ') || 'N/A'
 }
 
 /**
@@ -109,7 +110,7 @@ export const getGenderAndAge = user => {
  * @param user the user
  */
 export const getGenderAndDoB = user =>
-  [user.gender, user.dateOfBirth].filter(v => (v || '').trim().length > 0).join(', ') || 'N/A'
+  [user?.gender, user?.dateOfBirth].filter(v => (v || '').trim().length > 0).join(', ') || 'N/A'
 
 /**
  * get card type

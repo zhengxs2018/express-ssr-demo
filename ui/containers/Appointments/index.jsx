@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import { toast } from 'react-toastify'
-import { withRouter } from 'react-router-dom'
 import appointmentActions from '../../actions/appointmentActions'
 import AppointmentsLeftSidebar from '../../components/AppointmentsLeftSidebar'
 import UpcomingSession from '../../components/UpcomingSession'
@@ -20,12 +19,20 @@ class Appointments extends Component {
     this.state = {
       showConfirm: false,
       requesting: false,
+      user: null,
     }
   }
 
   componentWillMount() {
     this.props.appointmentActions.mockData()
     this.fetchAppointments()
+  }
+
+  componentDidMount() {
+    const { user } = AuthService.getAuth()
+    this.setState({
+      user,
+    })
   }
 
   /**
@@ -66,6 +73,7 @@ class Appointments extends Component {
 
   render() {
     const { items, appointmentsData } = this.props
+    const { user } = this.state
 
     let events = null
     if (items) {
@@ -121,7 +129,7 @@ class Appointments extends Component {
                   </div>
                 </div>
               </div>
-              <div className="titles">Good Morning, Dr.{getName(AuthService.getAuth().user)}</div>
+              <div className="titles">Good Morning, Dr.{getName(user)}</div>
 
               <div className="section-time">You have {getTodaySN()} sessions today</div>
 
@@ -150,4 +158,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(Appointments))
+export default connect(mapStateToProps, matchDispatchToProps)(Appointments)
