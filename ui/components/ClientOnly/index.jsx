@@ -1,9 +1,9 @@
 import React  from 'react'
 
-const ClientOnly = ({ children }) => {
-  if (typeof window === 'object') {
+import { IS_CLIENT } from '../../services/utils'
 
-    console.log(children)
+const ClientOnly = ({ children }) => {
+  if (IS_CLIENT) {
     return (<>{children}</>)
   }
 
