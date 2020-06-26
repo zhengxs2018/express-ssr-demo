@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import _ from 'lodash'
 import moment from 'moment'
@@ -309,8 +308,8 @@ class PatientDetails extends Component {
         [key]: true,
         editUser: {
           ..._.cloneDeep(user),
-          appointmentFee: user.appointmentFee / 100,
-          state: (user.state || '').toUpperCase(),
+          appointmentFee: user?.appointmentFee / 100,
+          state: (user?.state || '').toUpperCase(),
         },
       })
     }
@@ -353,7 +352,7 @@ class PatientDetails extends Component {
         if (requestBody.appointmentFee) {
           requestBody.appointmentFee = Math.ceil(requestBody.appointmentFee * 100)
         }
-        PatientService.updateProfile(this.state.editUser.id, requestBody)
+        PatientService.updateProfile(this.state.editUser?.id, requestBody)
           .then(() => {
             this.fetch()
             this.setState({ [id]: false })
@@ -375,10 +374,10 @@ class PatientDetails extends Component {
   print() {
     const { user } = AuthService.getAuth()
     PatientService.createAuditLog({
-      operator: `${user.email} (${user.id})`,
+      operator: `${user?.email} (${user?.id})`,
       action: 'Print',
       patientId: this.state.userId,
-      operatorRole: user.roles.join(', '),
+      operatorRole: user?.roles.join(', '),
       changeDetails: 'print patient details page',
     })
       .then(() => {
@@ -411,9 +410,9 @@ class PatientDetails extends Component {
       let completed
 
       if (key === 'forms') {
-        completed = _.filter((user.document || {}).forms, f => f.status !== 'approved').length === 0
+        completed = _.filter((user?.document || {}).forms, f => f.status !== 'approved').length === 0
       } else if (key === 'Payment Setup') {
-        completed = user.creditCards.length > 0
+        completed = user?.creditCards.length > 0
       } else {
         const items = _.get(user, 'onboarding.0.items')
         const item = _.find(items, i => i.title === key)
@@ -486,14 +485,14 @@ class PatientDetails extends Component {
               </div>
             </div>
             <div className="user-name">
-              {getName(user)} ({getUid(user.uid)})
+              {getName(user)} ({getUid(user?.uid)})
             </div>
 
             <div className="part-container">
               <div className="title">Insurance Cards</div>
-              {user.insuranceCards.length <= 0 && <div className="coming-soon">No Records</div>}
-              {user.insuranceCards.length > 0 &&
-                _.map(user.insuranceCards, (card, i) => (
+              {user?.insuranceCards.length <= 0 && <div className="coming-soon">No Records</div>}
+              {user?.insuranceCards.length > 0 &&
+                _.map(user?.insuranceCards, (card, i) => (
                   <div className="card" key={`i-card-${i}`}>
                     <div className="row head">
                       <div>Insurance Carrier</div>
@@ -590,7 +589,7 @@ class PatientDetails extends Component {
                       <div className="content content-line">
                         <div className="person-item">
                           <div className="user-head">
-                            <UserHead url={user.headUrl} name={getName(user)} color="blue" />
+                            <UserHead url={user?.headUrl} name={getName(user)} color="blue" />
                           </div>
                           <div className="col-item">
                             <div className="header">{getName(user)}</div>
@@ -604,18 +603,18 @@ class PatientDetails extends Component {
                         </div>
                         <div className="col-item">
                           <div className="header">Email</div>
-                          <a href={`mailto:${user.email}`} className="text email">
-                            {user.email}
+                          <a href={`mailto:${user?.email}`} className="text email">
+                            {user?.email}
                           </a>
                         </div>
 
                         <div className="col-item">
                           <div className="header">Phone</div>
-                          <div className="text">{user.phone || 'N/A'}</div>
+                          <div className="text">{user?.phone || 'N/A'}</div>
                         </div>
                         <div className="col-item">
                           <div className="header">Copay</div>
-                          <div className="text">$ {(user.appointmentFee || 0) / 100}</div>
+                          <div className="text">$ {(user?.appointmentFee || 0) / 100}</div>
                         </div>
                       </div>
                     )}
@@ -645,9 +644,9 @@ class PatientDetails extends Component {
 
                     {!cardEditor && (
                       <div className="content card">
-                        {user.insuranceCards.length <= 0 && <div className="coming-soon">No Records</div>}
-                        {user.insuranceCards.length > 0 &&
-                          _.map(user.insuranceCards, (card, i) => (
+                        {user?.insuranceCards.length <= 0 && <div className="coming-soon">No Records</div>}
+                        {user?.insuranceCards.length > 0 &&
+                          _.map(user?.insuranceCards, (card, i) => (
                             <div className="card" key={`i-card-${i}`}>
                               <div className="header">
                                 <span>{card.insuranceCarrier}</span> <span>{card.planNumber}</span>
@@ -704,9 +703,9 @@ class PatientDetails extends Component {
                     </div>
 
                     <div className="content card">
-                      {user.creditCards.length <= 0 && <div className="coming-soon">No Records</div>}
-                      {user.creditCards.length > 0 &&
-                        _.map(user.creditCards, (card, i) => (
+                      {user?.creditCards.length <= 0 && <div className="coming-soon">No Records</div>}
+                      {user?.creditCards.length > 0 &&
+                        _.map(user?.creditCards, (card, i) => (
                           <div className="card" key={`i-card-${i}`}>
                             <div className="header">
                               {getCreditCardIcon(card) && <img className="card-icon" src={getCreditCardIcon(card)} />}
@@ -733,7 +732,7 @@ class PatientDetails extends Component {
                       <img src={getIcon('forms')} />
                       <div className="title">Patient Form</div>
                     </div>
-                    {renderDocument((user.document || {}).forms, 'forms', {})}
+                    {renderDocument((user?.document || {}).forms, 'forms', {})}
                   </div>
 
                   {followUp && (
@@ -823,4 +822,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(PatientDetails))
+export default connect(mapStateToProps, matchDispatchToProps)(PatientDetails)

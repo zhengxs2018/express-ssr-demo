@@ -15,7 +15,7 @@ export default class AuthService {
    */
   static login(entity) {
     return Api.post('/login', entity).then(rsp => {
-      if (rsp.user.roles.includes(ROLES.Physician)) {
+      if (rsp.user?.roles.includes(ROLES.Physician)) {
         return rsp
       }
       throw new Error('Only physicians (providers) can login to the web portal')

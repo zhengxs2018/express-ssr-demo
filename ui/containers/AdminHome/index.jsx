@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import nprogress from 'nprogress'
 import adminHomeActions from '../../actions/adminHomeActions'
 import appointmentActions from '../../actions/appointmentActions'
@@ -109,4 +108,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(withRouter(AdminHome))
+export default connect(mapStateToProps, matchDispatchToProps)(AdminHome)

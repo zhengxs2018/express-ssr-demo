@@ -16,7 +16,7 @@ export default class PatientService {
    */
   static getRecentlyPatients() {
     const auth = LStorage.getItem(AUTH_KEY, true)
-    const items = LStorage.getItem(RECENTLY_KEY + auth.user.id, true, [])
+    const items = LStorage.getItem(RECENTLY_KEY + auth.user?.id, true, [])
     return new Promise(resolve => resolve(items))
   }
 
@@ -27,7 +27,7 @@ export default class PatientService {
    */
   static addRecentlyPatient(patient) {
     const auth = LStorage.getItem(AUTH_KEY, true)
-    const key = RECENTLY_KEY + auth.user.id
+    const key = RECENTLY_KEY + auth.user?.id
     let items = LStorage.getItem(key, true, []) || []
     const index = _.findIndex(items, i => i.id === patient.id)
     if (index >= 0) {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './styles.scss'
-import { withRouter } from 'react-router-dom'
 import UserHead from '../UserHead'
 import AuthService from '../../services/authService'
 
@@ -8,10 +7,19 @@ class AppointmentsLeftSidebar extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      name: null,
+    }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { user } = AuthService.getAuth()
+    const name = `${user?.firstName} ${user?.lastName}`
+
+    this.setState({
+      name,
+    })
+  }
 
   onLogout() {
     AuthService.cleanAuth()
@@ -23,13 +31,11 @@ class AppointmentsLeftSidebar extends Component {
   }
 
   render() {
-    const { user } = AuthService.getAuth()
-    const name = `${user.firstName} ${user.lastName}`
+    const { name } = this.state
     const isActive = key => {
       const p = this.props.location.pathname
       return p.indexOf(key) >= 0
     }
-
     const activeClass = key => `btn-items ${isActive(key) ? 'current' : ''}`
     return (
       <div className="left-nav">
@@ -56,7 +62,7 @@ class AppointmentsLeftSidebar extends Component {
           </ul>
         </div>
         <div className="user-btn">
-          <UserHead color="blue" name={name} url={user.headImg} />
+          <UserHead color="blue" name={name} url={user?.headImg} />
         </div>
         <div className="logout" onClick={() => this.onLogout()}>
           Log out
@@ -68,4 +74,4 @@ class AppointmentsLeftSidebar extends Component {
 
 AppointmentsLeftSidebar.propTypes = {}
 
-export default withRouter(AppointmentsLeftSidebar)
+export default AppointmentsLeftSidebar
