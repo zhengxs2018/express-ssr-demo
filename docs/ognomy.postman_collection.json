@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "ce99281c-95c8-45fa-9107-9c15cb8472c3",
+		"name": "ognomy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"daniel.rifkin@test.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniel@test.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "316"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13c-EYlp0wSCaQEserg+tPB3wj5CI+M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 02:52:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "UnauthorizedError: Invalid credentials\n    at Object.login (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:46:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async login (/Users/zhengxs/Documents/github/express-ssr-demo/app/controllers/Security.js:15:12)"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniel.rifkin@test.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "888"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"378-31hxd4oFJdlTVy2/wegqXBBTn14\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 02:48:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjQ5NjJhYTFmY2Y1NjFhZDQzY2M4ZSIsInJvbGVzIjpbIlBoeXNpY2lhbiJdLCJlbWFpbCI6ImRhbmllbC5yaWZraW5AdGVzdC5jb20iLCJpYXQiOjE1OTMxMzk3MzksImV4cCI6MTU5MzE0MDMzOX0.60piMCYWsj27IU4oOM9PlvN1FCnAvqxuSBbehM_nb0g\",\n    \"user\": {\n        \"bindNylas\": false,\n        \"bindZoom\": false,\n        \"isZoomBusiness\": false,\n        \"passwordDays\": 0,\n        \"isNeedChangePassword\": false,\n        \"isNeedWarnPassword\": false,\n        \"providerInfo\": {\n            \"timeZone\": \"America/New_York\",\n            \"qualifications\": [\n                \"MD\",\n                \"MPH\",\n                \"FAASM\"\n            ],\n            \"biography\": \"I'm the founder of the Sleep Medecine Centers of Western New York\"\n        },\n        \"chatbotProgress\": {},\n        \"appointmentFee\": 0,\n        \"roles\": [\n            \"Physician\"\n        ],\n        \"isProvider\": \"true\",\n        \"email\": \"daniel.rifkin@test.com\",\n        \"firstName\": \"Daniel\",\n        \"lastName\": \"Rifkin\",\n        \"address\": \"Buffalo, NY\",\n        \"createdAt\": \"2020-06-25T12:18:50.624Z\",\n        \"updatedAt\": \"2020-06-25T12:18:50.624Z\",\n        \"creditCards\": [],\n        \"insuranceCards\": [],\n        \"id\": \"5ef4962aa1fcf561ad43cc8e\"\n    }\n}"
+						},
+						{
+							"name": "Invalid password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniel.rifkin@test.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "316"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13c-fiYz9CHr0AplBsrwBolysZaMFnU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 02:51:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "UnauthorizedError: Invalid credentials\n    at Object.login (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:54:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async login (/Users/zhengxs/Documents/github/express-ssr-demo/app/controllers/Security.js:16:12)"
+						}
+					]
+				},
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"demo@test.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The user with email admin13213123@test.com already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin13213123@test.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "351"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15f-isiOdQUXDpDFNuXwvDsnwW5m0LY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 03:45:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "ConflictError: The user with email admin13213123@test.com already exists\n    at Object.signup (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:92:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async signup (/Users/zhengxs/Documents/github/express-ssr-demo/app/controllers/Security.js:15:3)"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"demo@test.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 03:47:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "The provided email and verification code are invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@examples.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/signup",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "452"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c4-hClb8zSwNPLFiuEForNA3716ApU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 03:26:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "BadRequestError: The provided email and verification code are invalid\n    at checkCode (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:48:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Object.signup (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:66:3)\n    at async signup (/Users/zhengxs/Documents/github/express-ssr-demo/app/controllers/Security.js:15:3)"
+						}
+					]
+				},
+				{
+					"name": "forgotPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"demo@test.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/forgotPassword",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"forgotPassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The provided email and verification code are invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"demo@test.com\",\n    \"verificationCode\": \"123456\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/forgotPassword",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"forgotPassword"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "469"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d5-kHLvvrdVHZHYL+dQTb9hm8fNiVM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 03:55:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "BadRequestError: The provided email and verification code are invalid\n    at checkCode (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:48:11)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Object.forgotPassword (/Users/zhengxs/Documents/github/express-ssr-demo/app/services/Security.js:241:3)\n    at async forgotPassword (/Users/zhengxs/Documents/github/express-ssr-demo/app/controllers/Security.js:47:3)"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "FAQs",
+			"item": [
+				{
+					"name": "FAQs - remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"11\",\n    \"content\": \"3333\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/FAQs/5ef44b5f8b5f3b1d42362f1c",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"FAQs",
+								"5ef44b5f8b5f3b1d42362f1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAQs - create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"11\",\n    \"content\": \"2222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/FAQs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"FAQs"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
