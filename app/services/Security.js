@@ -230,7 +230,7 @@ async function sendVerificationCode(data) {
 sendVerificationCode.schema = {
   data: Joi.object()
     .keys({
-      email: Joi.email(),
+      email: Joi.string().email(),
       type: Joi.string().required(),
     })
     .required(),
@@ -253,7 +253,7 @@ async function forgotPassword(data) {
 }
 
 module.exports = {
-  // sendVerificationCode,
+  sendVerificationCode,
   signup,
   login,
   forgotPassword,

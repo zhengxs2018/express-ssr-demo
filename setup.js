@@ -9,7 +9,12 @@ const { writeFileSync } = require('fs')
 require('express-async-errors')
 
 const mkdirp = require('mkdirp')
+const dotenv = require('dotenv')
+
 const Joi = require('joi')
+
+// Load .env file
+dotenv.config()
 
 Joi.id = () => Joi.optionalId().required()
 
