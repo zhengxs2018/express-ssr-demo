@@ -17,6 +17,6 @@ function renderer() {
   return (req, res) => handle(req, res, parse(req.url, true))
 }
 
-Promise.all([ssr.prepare(), connectDB()])
-  .then(() => runApp(createApp(renderer)))
+connectDB()
+  .then(() => Promise.all([ssr.prepare(), runApp(createApp(renderer))]))
   .catch(e => console.error('[core] Error', e.stack || e.message))
