@@ -15,13 +15,12 @@ const User = require('../models/User')
 
 const logger = require('../lib/logger')
 
-
 Nylas.config({
   // appId: config.get('NYLAS_APPLICATION_ID'),
   // appSecret: config.get('NYLAS_APPLICATION_SECRET'),
 
   clientId: config.get('NYLAS_APPLICATION_CLIENT_ID'),
-  clientSecret: config.get('NYLAS_APPLICATION_CLIENT_SECRET')
+  clientSecret: config.get('NYLAS_APPLICATION_CLIENT_SECRET'),
 })
 
 /**

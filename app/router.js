@@ -42,7 +42,7 @@ function createRouter(app) {
         }
 
         if (typeof route.handle !== 'function') {
-          throw new Error(`No controller defined for route ${route.path}`)
+          throw new Error(`No controller defined for route ${route.path} with ${method}`)
         }
 
         // Add url rule
