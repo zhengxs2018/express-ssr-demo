@@ -12,7 +12,7 @@ const getEmail = file => readFileSync(join(__dirname, 'emailTpl', `${file}.html`
 
 module.exports = {
   // it is configured to be empty currently, but may add prefix like '/api/v1'
-  API_PREFIX: process.env.API_PREFIX || '',
+  API_PREFIX: process.env.API_PREFIX || '/api',
 
   HOST: process.env.HOST || 'http://127.0.0.1:3000',
   FRONT_END_HOST: process.env.FRONT_END_HOST || 'http://127.0.0.1:3001',
