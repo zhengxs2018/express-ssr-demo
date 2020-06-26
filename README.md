@@ -249,3 +249,4 @@ A detailed README file including information on how to set up and run your appli
 
 - [] The server side lacks session function, interception can only be done on the client side.
 - [] The ui is heavily dependent on the LocalStorage api, which is not good for server-side rendering.
+- [] Over-coupling with react-router
