@@ -244,3 +244,8 @@ Final Submission Guidelines
 Full code that covers all the requirements.
 
 A detailed README file including information on how to set up and run your application.
+
+## Todo List 
+
+- [] The server side lacks session function, interception can only be done on the client side.
+- [] The ui is heavily dependent on the LocalStorage api, which is not good for server-side rendering.
