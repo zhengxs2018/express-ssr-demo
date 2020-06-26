@@ -2,21 +2,17 @@ import React from 'react'
 
 import Router from 'next/router'
 
+import { UserRoles } from '../constants/access'
+
 import ClientOnly from '../ui/components/ClientOnly'
 import Authorized from '../ui/components/Authorized'
 
 import AdminHome from '../ui/containers/AdminHome'
 
-import { UserRoles } from '../constants/access'
-
 const AdminHomePage = () => {
-  const fallback = (isLogged) => {
-    if (!isLogged) Router.replace('/login')
-  }
-
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Admin]} fallback={fallback}>
+      <Authorized roles={[UserRoles.Admin]}>
         <AdminHome></AdminHome>
       </Authorized>
     </ClientOnly>

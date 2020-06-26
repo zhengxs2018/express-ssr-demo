@@ -8,13 +8,6 @@ import Authorized from '../ui/components/Authorized'
 
 import { UserRoles } from '../constants/access'
 
-const fallback = (isLogged) => {
-  !isLogged && Router.replace({
-    pathname: '/login',
-    query: { next: location.href },
-  })
-}
-
 function Home(){
   const user = AuthService.getUser()
   if (user.roles.includes(UserRoles.Admin)) {
@@ -29,7 +22,7 @@ function Home(){
 function Welcome() {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Admin, UserRoles.Physician]} fallback={fallback}>
+      <Authorized roles={[UserRoles.Admin, UserRoles.Physician]}>
         <Home></Home>
       </Authorized>
     </ClientOnly>
