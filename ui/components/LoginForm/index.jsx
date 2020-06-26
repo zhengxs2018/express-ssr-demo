@@ -168,9 +168,9 @@ class LoginForm extends Component {
           })
 
           if (isAdmin) {
-            return Router.push('/adminHome')
+            return Router.replace('/adminHome')
           } else {
-            return Router.push('/appointments')
+            return Router.replace('/appointments')
           }
         })
         .catch(err => {
