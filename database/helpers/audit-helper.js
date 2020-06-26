@@ -2,6 +2,7 @@ const jsonDiff = require('json-diff')
 const _ = require('lodash')
 
 const { UserRoles } = require('../../constants/access')
+const AuditLog = require('../../app/models/AuditLog')
 
 /**
  Audit changes to any of the following 16 fields, we need to save both the old value and new values in the audit log:
@@ -130,17 +131,15 @@ const getUid = uid => pad(uid, 9)
 /**
  * preSave to save audit log
  * @param target the save target
- * @param modelName the model name
+ * @param Modal the target model
+ * @param user the user model
  * @return {Promise<void>}
  */
-async function preSave(target, modelName) {
-  if (modelName !== 'User') {
-    return
-  }
-  const models = require('../models')
-  const Model = models[modelName]
+async function preSave(target, Model, User) {
   const newObj = new Model(target)
+
   newObj.decryptFieldsSync()
+
   const obj = newObj.toJSON()
 
   const getPatientId = user => {
@@ -166,7 +165,7 @@ async function preSave(target, modelName) {
         operatorRole: obj.roles.join(', '),
         changeDetails: ` / ${v}`,
       }
-      await models.AuditLog.create(auditEntity)
+      await AuditLog.create(auditEntity)
     }
   } else {
     // update
@@ -181,7 +180,7 @@ async function preSave(target, modelName) {
     for (let i = 0; i < pathArr.length; i++) {
       const p = pathArr[i]
 
-      const operator = await models.User.findById(obj.updatedBy || obj.id)
+      const operator = await User.findById(obj.updatedBy || obj.id)
       const auditEntity = {
         operator: `${operator.email}(${operator._id})`,
         patientId: getPatientId(obj),
@@ -208,7 +207,7 @@ async function preSave(target, modelName) {
           const newAuditLog = _.clone(auditEntity)
           newAuditLog.action = `${action} ${ap}.${j}.${op}`
           newAuditLog.changeDetails = action === 'Remove' ? '' : details
-          await models.AuditLog.create(newAuditLog)
+          await AuditLog.create(newAuditLog)
         }
       } else {
         // raw item
@@ -218,7 +217,7 @@ async function preSave(target, modelName) {
         }
         auditEntity.action = `${action} ${p}`
         auditEntity.changeDetails = details
-        await models.AuditLog.create(auditEntity)
+        await AuditLog.create(auditEntity)
       }
     }
   }

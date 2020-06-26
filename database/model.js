@@ -4,18 +4,12 @@ const omit = require('lodash/omit')
 
 const { model } = require('mongoose')
 
-const { preSave } = require('./helpers/audit-helper')
-
 /**
  * define model
  * @param modelName the model name
  * @returns {*}
  */
 module.exports = function defineModel(modelName, schema) {
-  schema.pre('save', async function() {
-    await preSave(this, modelName)
-  })
-
   const Model = model(modelName, schema)
 
   Model.schema.options.minimize = false

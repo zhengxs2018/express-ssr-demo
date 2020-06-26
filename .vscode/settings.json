@@ -18,6 +18,7 @@
     "**/public/uploads/**": true
   },
   "cSpell.words": [
+    "Nylas",
     "ognomy",
     "staticfile"
   ],

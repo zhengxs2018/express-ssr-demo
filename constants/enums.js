@@ -56,7 +56,6 @@ module.exports = {
   NylasAuthScopes,
   MeetingTypes,
   FormFileStatus,
-  ScheduleKey,
   DELRequestStatus,
   FileType,
 }

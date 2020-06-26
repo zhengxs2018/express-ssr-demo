@@ -1,8 +1,8 @@
 'use strict'
 
-const { join } = require('path')
+const { join, dirname } = require('path')
 
-const rootDir = process.env.ROOT_DIR
+const rootDir = process.env.ROOT_DIR || dirname(__dirname)
 
 module.exports = {
   // https
