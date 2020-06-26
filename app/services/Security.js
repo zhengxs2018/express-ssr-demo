@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken')
 const { Unauthorized, Conflict, BadRequest } = require('http-errors')
 
 const isNil = require('lodash/isNil')
+const size = require('lodash/size')
 const omit = require('lodash/omit')
 
 const logger = require('../lib/logger')
@@ -24,8 +25,8 @@ const AuditLog = require('../models/AuditLog')
 const User = require('../models/User')
 const VerificationCode = require('../models/VerificationCode')
 
-const { getUID } = require('./User')
-const { checkPwd } = require('./admin/AdminCommon')
+const UserService = require('./User')
+const AdminCommonService = require('./admin/AdminCommon')
 
 /**
  * check code
@@ -73,7 +74,7 @@ async function signup(data) {
   if (isNil(existingUser)) {
     // The user account does not exist, it can be safely created.
     // create a new user account with Patient role
-    const [uid, passwordHash] = await Promise.all([getUID(), hashPassword(data.password)])
+    const [uid, passwordHash] = await Promise.all([UserService.getUID(), hashPassword(data.password)])
 
     const user = new User({
       email: data.email,
@@ -115,7 +116,7 @@ async function login(credentials) {
       changeDetails: details,
     })
   }
-  if (isNil(users[0])) {
+  if (size(users) === 0) {
     await createLoginAuditLog('N/A', 'Invalid credentials, User not exist')
     throw new Unauthorized('Invalid credentials')
   }
@@ -144,7 +145,7 @@ async function login(credentials) {
       bindNylas: !!user.nylasAccessToken,
       bindZoom: !!user.zoomUserId,
       isZoomBusiness: isZoomBusiness(),
-      ...(await checkPwd(user._id)),
+      ...(await AdminCommonService.checkPwd(user._id)),
       ...omit(user.toJSON(), ['passwordHash']),
       ...{ roles: user.roles },
     },

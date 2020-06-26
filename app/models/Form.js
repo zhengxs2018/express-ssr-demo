@@ -4,7 +4,7 @@ const { Schema } = require('mongoose')
 
 const { fieldEncryption } = require('mongoose-field-encryption')
 
-const { signUrl } = require('../services/AWS')
+const AWSService = require('../services/AWS')
 const defineModel = require('../../database/model')
 
 /**
@@ -42,8 +42,7 @@ schema.final = ret => {
 
   forms.forEach(f => {
     const pages = f.pages || []
-    console.log(pages)
-    // f.pages = pages.map(p => signUrl(p))
+    f.pages = pages.map(p => AWSService.signUrl(p))
   })
 
   return ret

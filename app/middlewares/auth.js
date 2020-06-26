@@ -7,7 +7,7 @@ const { Unauthorized } = require('http-errors')
 
 const intersection = require('lodash/intersection')
 
-const { User } = require('../models/User')
+const User = require('../models/User')
 
 const JWT_SECRET = config.get('JWT_SECRET')
 

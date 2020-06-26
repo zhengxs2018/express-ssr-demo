@@ -3,7 +3,7 @@
  */
 const { CREATED, NO_CONTENT } = require('http-status-codes')
 
-const Security = require('../services/Security')
+const SecurityService = require('../services/Security')
 
 /**
  * Handles the signup request.
@@ -12,7 +12,7 @@ const Security = require('../services/Security')
  * @param {Object} res The http response
  */
 async function signup(req, res) {
-  await Security.signup(req.body)
+  await SecurityService.signup(req.body)
   res.status(CREATED).end()
 }
 
@@ -23,7 +23,7 @@ async function signup(req, res) {
  * @param res the http response
  */
 async function login(req, res) {
-  res.send(await Security.login(req.body))
+  res.send(await SecurityService.login(req.body))
 }
 
 /**
@@ -33,7 +33,7 @@ async function login(req, res) {
  * @param res the http response
  */
 async function sendVerificationCode(req, res) {
-  await Security.sendVerificationCode(req.query)
+  await SecurityService.sendVerificationCode(req.query)
   res.end()
 }
 
@@ -44,7 +44,7 @@ async function sendVerificationCode(req, res) {
  * @param {Object} res The http response
  */
 async function forgotPassword(req, res) {
-  await Security.forgotPassword(req.body)
+  await SecurityService.forgotPassword(req.body)
   res.status(NO_CONTENT).end()
 }
 

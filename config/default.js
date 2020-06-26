@@ -201,6 +201,6 @@ module.exports = {
 
   LISTEN: {
     host: process.env.HOST || '127.0.0.1',
-    port: toInteger(process.env.PORT || 8080),
+    port: toInteger(process.env.PORT || 3000),
   },
 }

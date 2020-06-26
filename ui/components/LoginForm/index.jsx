@@ -254,7 +254,7 @@ class LoginForm extends Component {
             onChange={this.handleInputChange('password')}
           />
         </div>
-        <a href="javascript:;" className="btn btn-blue" onClick={this.clickLogin}>
+        <a className="btn btn-blue" onClick={this.clickLogin}>
           Log in
         </a>
 

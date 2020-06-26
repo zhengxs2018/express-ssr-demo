@@ -9,7 +9,6 @@ const { writeFileSync } = require('fs')
 require('express-async-errors')
 
 const mkdirp = require('mkdirp')
-
 const Joi = require('joi')
 
 Joi.id = () => Joi.optionalId().required()
