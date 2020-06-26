@@ -4,12 +4,15 @@
 const logger = require('../app/lib/logger')
 const { hashPassword } = require('../app/lib/utils')
 
-const connectDB = require('../database/connect')
 const { UserRoles } = require('../constants/access')
+const {  VerificationCodeTypes } = require('../constants/enums')
+
+const connectDB = require('../database/connect')
 
 logger.info('Insert test data into database.')
 
-async function insertTestData () {
+async function insertUsers() {
+  return
   const User = require('../app/models/User')
 
   // create users
@@ -25,10 +28,10 @@ async function insertTestData () {
       address: 'Buffalo, NY',
       providerInfo: {
         qualifications: ['MD', 'MPH', 'FAASM'],
-        biography: `I'm the founder of the Sleep Medecine Centers of Western New York`
+        biography: `I'm the founder of the Sleep Medecine Centers of Western New York`,
       },
       roles,
-      isProvider: true
+      isProvider: true,
     }),
     User.create({
       email: 'yourProviderEmail@gmail.com', // Use a gmail address here for verification
@@ -39,10 +42,10 @@ async function insertTestData () {
       providerInfo: {
         timeZone: 'America/New_York',
         qualifications: ['MD'],
-        biography: `Expert Doctor of Medecine with 15 years of experience`
+        biography: `Expert Doctor of Medecine with 15 years of experience`,
       },
       roles,
-      isProvider: true
+      isProvider: true,
     }),
     User.create({
       email: 'keryn.e-gauch@test.com',
@@ -52,10 +55,10 @@ async function insertTestData () {
       address: 'Buffalo, NY',
       providerInfo: {
         qualifications: ['RPA-C', 'MS'],
-        biography: `Multiple sclerosis expert, Registered Physician Assistant - Certified`
+        biography: `Multiple sclerosis expert, Registered Physician Assistant - Certified`,
       },
       roles,
-      isProvider: true
+      isProvider: true,
     }),
     User.create({
       email: 'marc.L-schelegel@test.com',
@@ -65,26 +68,46 @@ async function insertTestData () {
       address: 'Buffalo, NY',
       providerInfo: {
         qualifications: ['RPA-C', 'MS'],
-        biography: `Multiple sclerosis expert, Registered Physician Assistant - Certified`
+        biography: `Multiple sclerosis expert, Registered Physician Assistant - Certified`,
       },
       roles,
-      isProvider: true
+      isProvider: true,
     }),
     User.create({
       email: 'sleepless.patient@test.com',
       passwordHash,
       roles: [UserRoles.Patient],
-      isProvider: false
+      isProvider: false,
+    }),
+  ])
+}
+
+async function insertVerificationCode() {
+  const VerificationCode = require('../app/models/VerificationCode')
+
+  await Promise.all([
+    VerificationCode.create({
+      type: VerificationCodeTypes.SignUp,
+      email: "admin@test.com",
+      value: '123456',
+      expiryDate: new Date('2020/12/31 23:59:59')
+    }),
+    VerificationCode.create({
+      type: VerificationCodeTypes.SignUp,
+      email: "demo@test.com",
+      value: '123456',
+      expiryDate: new Date('2020/12/31 23:59:59')
     })
   ])
 }
 
-connectDB().
-  then(insertTestData)
+connectDB()
+  .then(() => Promise.all([insertVerificationCode(), insertUsers()]))
   .then(() => {
     logger.info('Test data created')
     process.exit()
-  }).catch((e) => {
+  })
+  .catch(e => {
     logger.logFullError(e)
     process.exit(1)
   })

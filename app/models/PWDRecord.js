@@ -4,23 +4,16 @@ const { Schema } = require('mongoose')
 
 const { fieldEncryption } = require('mongoose-field-encryption')
 
-const omit = require('lodash/omit')
-
 const defineModel = require('../../database/model')
 
 /**
- * The Audit log
+ * ALL WEB USERS need to update passwords every 120 days
+ * this used to record
  */
-const schema = new Schema(
-  {
-    operator: String,
-    action: String,
-    patientId: String,
-    operatorRole: String,
-    changeDetails: String,
-  },
-  { timestamps: true }
-)
+const schema = new Schema({
+  userId: String,
+  createdAt: Date
+})
 
 schema.plugin(fieldEncryption, {
   fields: Object.keys(schema.obj),
@@ -28,6 +21,4 @@ schema.plugin(fieldEncryption, {
   saltGenerator: secret => secret.slice(0, 16),
 })
 
-schema.final = ret => omit(ret, 'id', 'updatedAt')
-
-module.exports = defineModel('AuditLog', schema)
+module.exports = defineModel('PWDRecord', schema)

@@ -12,7 +12,7 @@ const { hash, compare } = require('bcryptjs')
  * @param {String} text the text to hash
  * @returns {String} the hashed string
  */
-function hashPassword (text) {
+function hashPassword(text) {
   return hash(text, config.get('PASSWORD_HASH_SALT_LENGTH'))
 }
 
@@ -23,10 +23,9 @@ function hashPassword (text) {
  * @param {String} hash   the hash to validate
  * @returns {Boolean} whether the password hash is valid
  */
-async function validatePasswordHash (password, hash) {
+async function validatePasswordHash(password, hash) {
   return compare(password, hash)
 }
-
 
 function isString(value) {
   return typeof value === 'string'
@@ -50,6 +49,10 @@ function isNpmPackage(value) {
   return isNodeModule(value) && isNodeModule(`${value}/package.json`)
 }
 
+function isZoomBusiness() {
+  return config.get('ZOOM_BUSINESS_LICENSE')
+}
+
 module.exports = {
   hashPassword,
   validatePasswordHash,
@@ -58,4 +61,5 @@ module.exports = {
   isFile,
   isNodeModule,
   isNpmPackage,
+  isZoomBusiness,
 }
