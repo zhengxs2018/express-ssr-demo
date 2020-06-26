@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+// import { withRouter } from 'react-router-dom'
 import './styles.scss'
 import { toast } from 'react-toastify'
 import AuthService, { AUTH_KEY } from '../../services/authService'
@@ -267,4 +267,6 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {}
 
-export default withRouter(LoginForm)
+// export default withRouter(LoginForm)
+
+export default LoginForm

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-function Home(): JSX.Element {
+function Home() {
   return (
     <div className="mod-empty">
       <p>no data, you could add one</p>
