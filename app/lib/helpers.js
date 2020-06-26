@@ -42,14 +42,13 @@ async function sendEmail(subject, textBody, recipients, fromEmail = null, attach
   return sendMailAsync(req)
 }
 
-
 /**
  * remove all
  * @param Model the model
  * @param criteria the search query
  * @return {Promise<*>}
  */
-async function removeAll (Model, criteria) {
+async function removeAll(Model, criteria) {
   // create a Model instance with encrypted fields
   const exampleModel = new Model(criteria)
   exampleModel.encryptFieldsSync()
@@ -72,22 +71,26 @@ async function removeAll (Model, criteria) {
  * @param value
  * @return {boolean}
  */
-function objectMatch (object, fields, value) {
+function objectMatch(object, fields, value) {
   for (let i = 0; i < fields.length; i++) {
     const f = fields[i]
-    if ((get(object, f) || '').toString().toLowerCase().indexOf(value.toString().toLowerCase()) >= 0) {
+    if (
+      (get(object, f) || '')
+        .toString()
+        .toLowerCase()
+        .indexOf(value.toString().toLowerCase()) >= 0
+    ) {
       return true
     }
   }
   return false
 }
 
-
 /**
  * get user full name
  * @param user the user
  */
-function getUserName (user) {
+function getUserName(user) {
   if (!user) {
     return null
   }
@@ -101,7 +104,7 @@ function getUserName (user) {
  * @param chars the chars
  * @return {string}
  */
-function randomStr (len, chars) {
+function randomStr(len, chars) {
   const newLen = len || 32
   const $chars = chars || 'abcdefhijkmnprstwxyz0123456789'
   const maxPos = $chars.length
@@ -117,15 +120,17 @@ function randomStr (len, chars) {
  * @param entities
  * @param query
  */
-function orderAndPage (entities, query) {
+function orderAndPage(entities, query) {
   let all = entities
   if (query.sortBy && query.sortOrder) {
     all = orderBy(entities, [query.sortBy], [query.sortOrder])
   }
-  return { pageNum: query.pageNum,
+  return {
+    pageNum: query.pageNum,
     perPage: query.perPage,
     total: all.length,
-    items: all.slice((query.pageNum - 1) * query.perPage, query.pageNum * query.perPage) }
+    items: all.slice((query.pageNum - 1) * query.perPage, query.pageNum * query.perPage),
+  }
 }
 
 module.exports = {
@@ -134,5 +139,5 @@ module.exports = {
   removeAll,
   getUserName,
   randomStr,
-  orderAndPage
+  orderAndPage,
 }

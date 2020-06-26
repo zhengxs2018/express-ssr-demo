@@ -5,14 +5,13 @@ const logger = require('../app/lib/logger')
 const { hashPassword } = require('../app/lib/utils')
 
 const { UserRoles } = require('../constants/access')
-const {  VerificationCodeTypes } = require('../constants/enums')
+const { VerificationCodeTypes } = require('../constants/enums')
 
 const connectDB = require('../database/connect')
 
 logger.info('Insert test data into database.')
 
 async function insertUsers() {
-  return
   const User = require('../app/models/User')
 
   // create users
@@ -88,16 +87,16 @@ async function insertVerificationCode() {
   await Promise.all([
     VerificationCode.create({
       type: VerificationCodeTypes.SignUp,
-      email: "admin@test.com",
+      email: 'admin@test.com',
       value: '123456',
-      expiryDate: new Date('2020/12/31 23:59:59')
+      expiryDate: new Date('2020/12/31 23:59:59'),
     }),
     VerificationCode.create({
       type: VerificationCodeTypes.SignUp,
-      email: "demo@test.com",
+      email: 'demo@test.com',
       value: '123456',
-      expiryDate: new Date('2020/12/31 23:59:59')
-    })
+      expiryDate: new Date('2020/12/31 23:59:59'),
+    }),
   ])
 }
 

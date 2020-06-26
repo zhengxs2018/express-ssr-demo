@@ -13,7 +13,6 @@ const logger = require('../lib/logger')
 
 const User = require('../models/User')
 
-
 /**
  * get uid
  */

@@ -9,8 +9,8 @@
     "dev": "nodemon -r ./setup.js ./server-ssr.js",
     "debug": "nodemon --inspect -r ./setup.js ./server-ssr.js",
     "build": "next build",
-    "lint": "prettier *.js \"{app,config,constants,database,pages}/**/*.js?(x)\" --check",
-    "format": "prettier *.js \"{app,config,constants,database,pages}/**/*.js?(x)\" --write"
+    "lint": "prettier *.js \"{app,config,constants,database,pages,scripts}/**/*.js?(x)\" --check",
+    "format": "prettier *.js \"{app,config,constants,database,pages,scripts}/**/*.js?(x)\" --write"
   },
   "husky": {
     "hooks": {

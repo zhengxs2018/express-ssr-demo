@@ -19,20 +19,19 @@ const schema = new Schema({
   status: String,
   patientId: String,
   patientName: String,
-  backup: SchemaTypes.Mixed
+  backup: SchemaTypes.Mixed,
 })
 
-schema.plugin(fieldEncryption,
-  {
-    fields: Object.keys(schema.obj),
-    secret: config.get('ENCRYPTION_SECRET_KEY'),
-    saltGenerator: secret => secret.slice(0, 16)
-  })
+schema.plugin(fieldEncryption, {
+  fields: Object.keys(schema.obj),
+  secret: config.get('ENCRYPTION_SECRET_KEY'),
+  saltGenerator: secret => secret.slice(0, 16),
+})
 
-  schema.plugin(fieldEncryption, {
-    fields: Object.keys(schema.obj),
-    secret: config.get('ENCRYPTION_SECRET_KEY'),
-    saltGenerator: secret => secret.slice(0, 16),
-  })
+schema.plugin(fieldEncryption, {
+  fields: Object.keys(schema.obj),
+  secret: config.get('ENCRYPTION_SECRET_KEY'),
+  saltGenerator: secret => secret.slice(0, 16),
+})
 
-  module.exports = defineModel('DeleteRequest', schema)
+module.exports = defineModel('DeleteRequest', schema)

@@ -1,14 +1,14 @@
 'use strict'
 /**
-* The configuration file.
-*/
+ * The configuration file.
+ */
 const { join } = require('path')
 
 const { readFileSync } = require('fs')
 
 const toInteger = require('lodash/toInteger')
 
-const getEmail = (file) => readFileSync(join(__dirname, 'emailTpl', `${file}.html`), 'utf8')
+const getEmail = file => readFileSync(join(__dirname, 'emailTpl', `${file}.html`), 'utf8')
 
 module.exports = {
   // it is configured to be empty currently, but may add prefix like '/api/v1'
@@ -35,7 +35,7 @@ module.exports = {
   WORK_DAY_TIME_RANGE: {
     Tuesday: [{ start: '08:30:00', end: '12:00:00' }],
     Wednesday: [{ start: '08:30:00', end: '12:00:00' }],
-    Thursday: [{ start: '13:00:00', end: '16:30:00' }]
+    Thursday: [{ start: '13:00:00', end: '16:30:00' }],
   },
 
   TIME_SLOT_LENGTH_MINUTES: process.env.TIME_SLOT_LENGTH_MINUTES || 40,
@@ -62,8 +62,8 @@ module.exports = {
     port: process.env.SMTP_PORT || 25,
     auth: {
       user: process.env.SMTP_USER || 'user',
-      pass: process.env.SMTP_PASSWORD || 'password'
-    }
+      pass: process.env.SMTP_PASSWORD || 'password',
+    },
   },
 
   VERIFICATION_CODE_EMAIL_SUBJECT: process.env.VERIFICATION_CODE_EMAIL_SUBJECT || 'Ognomy Verification Code',
@@ -91,10 +91,66 @@ module.exports = {
   NEW_PROVIDER_SUBJECT: process.env.NEW_PROVIDER_SUBJECT || 'Ognomy Password',
   NEW_PROVIDER_CONTENT: process.env.NEW_PROVIDER_CONTENT || getEmail('doctor-reset-pwd'),
 
-  SUPPORTED_STATE_LIST: process.env.SUPPORTED_STATE_LIST || ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID',
-    'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH',
-    'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA',
-    'WA', 'WV', 'WI', 'WY', 'DC', 'MH', 'AE', 'AA', 'AE', 'AE', 'AE', 'AP'],
+  SUPPORTED_STATE_LIST: process.env.SUPPORTED_STATE_LIST || [
+    'AL',
+    'AK',
+    'AZ',
+    'AR',
+    'CA',
+    'CO',
+    'CT',
+    'DE',
+    'FL',
+    'GA',
+    'HI',
+    'ID',
+    'IL',
+    'IN',
+    'IA',
+    'KS',
+    'KY',
+    'LA',
+    'ME',
+    'MD',
+    'MA',
+    'MI',
+    'MN',
+    'MS',
+    'MO',
+    'MT',
+    'NE',
+    'NV',
+    'NH',
+    'NJ',
+    'NM',
+    'NY',
+    'NC',
+    'ND',
+    'OH',
+    'OK',
+    'OR',
+    'PA',
+    'RI',
+    'SC',
+    'SD',
+    'TN',
+    'TX',
+    'UT',
+    'VT',
+    'VA',
+    'WA',
+    'WV',
+    'WI',
+    'WY',
+    'DC',
+    'MH',
+    'AE',
+    'AA',
+    'AE',
+    'AE',
+    'AE',
+    'AP',
+  ],
   NYLAS_EVENT_LOCATION: process.env.NYLAS_EVENT_LOCATION || 'Ognomy App',
   TEL_PHONE: '1-877-664-6669',
 
@@ -122,7 +178,7 @@ module.exports = {
    */
   scheduler: {
     // every minutes
-    updateAppointmentRule: '30 * * * * *'
+    updateAppointmentRule: '30 * * * * *',
   },
 
   // https

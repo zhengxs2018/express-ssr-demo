@@ -73,10 +73,7 @@ async function signup(data) {
   if (isNil(existingUser)) {
     // The user account does not exist, it can be safely created.
     // create a new user account with Patient role
-    const [uid, passwordHash] = await Promise.all([
-      getUID(),
-      hashPassword(data.password)
-    ])
+    const [uid, passwordHash] = await Promise.all([getUID(), hashPassword(data.password)])
 
     const user = new User({
       email: data.email,
@@ -218,7 +215,9 @@ async function sendVerificationCode(data) {
   await verificationCode.save()
 
   // Send the generated verification code value to the user
-  const emailBody = config.get('VERIFICATION_CODE_EMAIL_BODY').replace('{verificationCode}', verificationCodeValue)
+  const emailBody = config
+    .get('VERIFICATION_CODE_EMAIL_BODY')
+    .replace('{verificationCode}', verificationCodeValue)
     .replace('{type}', data.type === VerificationCodeTypes.ForgotPassword ? 'password reset' : 'Sign Up')
     .replace(
       '{title}',
@@ -235,7 +234,6 @@ sendVerificationCode.schema = {
     })
     .required(),
 }
-
 
 async function forgotPassword(data) {
   await checkCode(data.email, data.verificationCode, VerificationCodeTypes.ForgotPassword)
