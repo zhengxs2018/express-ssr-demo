@@ -48,55 +48,53 @@ class AdminHome extends Component {
     const { adminHomeData } = this.state
 
     return (
-      <React.Fragment>
-        <React.Fragment>
-          <AdminLeftSidebar />
+      <>
+        <AdminLeftSidebar />
 
-          <ExpiringMsgBar expiringDays={this.state.expiringDays} />
+        <ExpiringMsgBar expiringDays={this.state.expiringDays} />
 
-          <div className="contents appointments">
-            <div className="paddings">
-              <div className="top-bar flex-grid">
-                <div className="lefts">
-                  <i className="icons icon-logo" />
+        <div className="contents appointments">
+          <div className="paddings">
+            <div className="top-bar flex-grid">
+              <div className="lefts">
+                <i className="icons icon-logo" />
                   OGNOMY
                 </div>
-                <div className="rights flex">
-                  <a href="javascript:;" className="icons btn-search" />
-                  <div className="info-module">
-                    <a href="javascript:;" className="icons btn-bell">
-                      <i className="red-point" />
-                    </a>
-                  </div>
+              <div className="rights flex">
+                <a href="javascript:;" className="icons btn-search" />
+                <div className="info-module">
+                  <a href="javascript:;" className="icons btn-bell">
+                    <i className="red-point" />
+                  </a>
                 </div>
               </div>
-              <div className="titles">Good Morning, Emma</div>
-
-              {adminHomeData && (
-                <React.Fragment>
-                  <div className="panel-list">
-                    <div className="titles">Overview</div>
-
-                    <Overview data={adminHomeData.overview} />
-                  </div>
-                  <div className="wrap-boxs flex-grid">
-                    <BarChart data={adminHomeData.barChart} />
-
-                    <SystemStatus data={adminHomeData.systemStatus} />
-                  </div>
-                </React.Fragment>
-              )}
             </div>
-          </div>
+            <div className="titles">Good Morning, Emma</div>
 
-          {appointmentsData && (
-            <AppointmentsRightSidebar
-              tasksAndReminders={appointmentsData.tasksAndReminders}
-              messages={appointmentsData.messages}
-            />
-          )}
-        </React.Fragment>
-      </React.Fragment>
+            {adminHomeData && (
+              <>
+                <div className="panel-list">
+                  <div className="titles">Overview</div>
+
+                  <Overview data={adminHomeData.overview} />
+                </div>
+                <div className="wrap-boxs flex-grid">
+                  <BarChart data={adminHomeData.barChart} />
+
+                  <SystemStatus data={adminHomeData.systemStatus} />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
+        {appointmentsData && (
+          <AppointmentsRightSidebar
+            tasksAndReminders={appointmentsData.tasksAndReminders}
+            messages={appointmentsData.messages}
+          />
+        )}
+      </>
     )
   }
 }
