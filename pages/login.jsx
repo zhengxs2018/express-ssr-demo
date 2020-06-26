@@ -1,3 +1,14 @@
+
+import ClientOnly from '../ui/components/ClientOnly'
+
 import Login from '../ui/containers/Login/index'
 
-export default Login
+const LoginPage = () => {
+  return (
+    <ClientOnly>
+      <Login></Login>
+    </ClientOnly>
+  )
+}
+
+export default LoginPage

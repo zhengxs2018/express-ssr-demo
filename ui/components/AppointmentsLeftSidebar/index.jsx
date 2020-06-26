@@ -1,39 +1,36 @@
 import React, { Component } from 'react'
-import './styles.scss'
+import Router, { withRouter } from 'next/router'
+
 import UserHead from '../UserHead'
 import AuthService from '../../services/authService'
+
+import './styles.scss'
 
 class AppointmentsLeftSidebar extends Component {
   constructor(props) {
     super(props)
 
+    const user = AuthService.getUser()
+
     this.state = {
-      name: null,
+      name: `${user?.firstName} ${user?.lastName}`,
+      user
     }
-  }
-
-  componentDidMount() {
-    const { user } = AuthService.getAuth()
-    const name = `${user?.firstName} ${user?.lastName}`
-
-    this.setState({
-      name,
-    })
   }
 
   onLogout() {
     AuthService.cleanAuth()
-    window.location = '/'
+    Router.replace('/')
   }
 
   goto(url) {
-    this.props.history.push(url)
+    Router.push(url)
   }
 
   render() {
-    const { name } = this.state
+    const { name, user } = this.state
     const isActive = key => {
-      const p = this.props.location.pathname
+      const p = this.props.router.pathname
       return p.indexOf(key) >= 0
     }
     const activeClass = key => `btn-items ${isActive(key) ? 'current' : ''}`
@@ -74,4 +71,4 @@ class AppointmentsLeftSidebar extends Component {
 
 AppointmentsLeftSidebar.propTypes = {}
 
-export default AppointmentsLeftSidebar
+export default withRouter(AppointmentsLeftSidebar)

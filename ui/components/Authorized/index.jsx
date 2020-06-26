@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 
 import size from 'lodash/size'
 import isNil from 'lodash/isNil'
@@ -17,7 +18,7 @@ const Authorized = ({ children, roles, fallback }) => {
 
   if (isNil(user)) {
     const content = isFunction(fallback) && fallback(false)
-    console.log(content)
+
     if (!content) {
       Router.replace({
         pathname: '/login',

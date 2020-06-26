@@ -156,9 +156,9 @@ class LoginForm extends Component {
         .then(rsp => {
           const isAdmin =  rsp.user.roles.includes(UserRoles.Admin)
 
-          if (!isAdmin && !this.checkUserStatus(rsp)) {
-            return
-          }
+          // if (!isAdmin && !this.checkUserStatus(rsp)) {
+          //   return
+          // }
 
           LStorage.setItem(AUTH_KEY, rsp)
           this.setState({
