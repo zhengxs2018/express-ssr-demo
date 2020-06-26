@@ -3,6 +3,12 @@
 module.exports = {
   prefix: '/',
   endpoints: {
+    health: {
+      get: {
+        handle: 'Security:ping',
+        public: true,
+      },
+    },
     login: {
       post: {
         handle: 'Security:login',
