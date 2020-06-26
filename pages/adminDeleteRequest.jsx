@@ -5,16 +5,16 @@ import { UserRoles } from '../constants/access'
 import ClientOnly from '../ui/components/ClientOnly'
 import Authorized from '../ui/components/Authorized'
 
-import AdminUsers from '../ui/containers/AdminUsers'
+import AdminDeleteRequest from '../ui/containers/AdminDeleteRequest'
 
-const AdminUsersPage = () => {
+const AdminDeleteRequestPage = () => {
   return (
     <ClientOnly>
       <Authorized roles={[UserRoles.Admin]} >
-        <AdminUsers></AdminUsers>
+        <AdminDeleteRequest></AdminDeleteRequest>
       </Authorized>
     </ClientOnly>
   )
 }
 
-export default AdminUsersPage
+export default AdminDeleteRequestPage

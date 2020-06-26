@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'next/router'
 import _ from 'lodash'
 import nprogress from 'nprogress'
 import Link from 'next/link'
@@ -18,12 +19,13 @@ class AdminPhysicianProfile extends Component {
   constructor(props, context) {
     super(props, context)
     nprogress.start()
+
     this.state = {
       adminPhysicianProfileData: this.props.adminPhysicianProfileData,
       profileDataPrevious: null,
       shownSidebar: 'Availability', // 'Availability', 'EditProfile',
       resetedPasswordTimeCount: 0,
-      userType: this.props.match.params.type,
+      userType: this.props.router.query.type,
     }
   }
 
@@ -103,67 +105,67 @@ class AdminPhysicianProfile extends Component {
     } = this.state
 
     return (
-      <React.Fragment>
-        <React.Fragment>
-          <AdminLeftSidebar />
+      <>
+        <AdminLeftSidebar />
 
-          {adminPhysicianProfileData && (
-            <div className="contents appointments">
-              {resetedPasswordTimeCount > 0 && (
-                <TopInfoBar
-                  type="done"
-                  title="Password has been reset."
-                  subTitle="Instruction email has been sent to suer"
-                  timeCount={resetedPasswordTimeCount}
-                  clearCount={() => this.clearCount()}
+        {adminPhysicianProfileData && (
+          <div className="contents appointments">
+            {resetedPasswordTimeCount > 0 && (
+              <TopInfoBar
+                type="done"
+                title="Password has been reset."
+                subTitle="Instruction email has been sent to suer"
+                timeCount={resetedPasswordTimeCount}
+                clearCount={() => this.clearCount()}
+              />
+            )}
+
+            <div className="paddings">
+              <div className="top-bar flex-grid">
+                <div className="left-back">
+                  <Link href="/adminUsers">
+                    <a className="icons icon-back" ></a>
+                    </Link>
+                  <span className="txt">All {userType !== 'Secretary' ? userType : 'Secretarie'}s</span>
+                </div>
+                <div className="rights flex">
+                  <a href="javascript:;" className="icons btn-search" />
+                  <div className="info-module">
+                    <a href="javascript:;" className="icons btn-bell">
+                      <i className="red-point" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="top-bar">
+                <div className="lefts">{userType} Profile</div>
+              </div>
+              <div className="profile-area flex-grid">
+                <PhysicianProfileBanner
+                  data={adminPhysicianProfileData.profileBanner}
+                  clickEditProfile={isOpen => this.clickEditProfile(isOpen)}
                 />
+
+                <PhysicianAbout data={adminPhysicianProfileData.aboutBanner} />
+              </div>
+
+              <PhysicianUpcomingAppointment data={adminPhysicianProfileData.upcomingAppointment} />
+
+              {shownSidebar === 'Availability' && (
+                <PhysicianAvailabilityRightSidebar data={adminPhysicianProfileData.availability} />
               )}
 
-              <div className="paddings">
-                <div className="top-bar flex-grid">
-                  <div className="left-back">
-                    <Link href="/adminUsers" className="icons icon-back" />
-                    <span className="txt">All {userType !== 'Secretary' ? userType : 'Secretarie'}s</span>
-                  </div>
-                  <div className="rights flex">
-                    <a href="javascript:;" className="icons btn-search" />
-                    <div className="info-module">
-                      <a href="javascript:;" className="icons btn-bell">
-                        <i className="red-point" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="top-bar">
-                  <div className="lefts">{userType} Profile</div>
-                </div>
-                <div className="profile-area flex-grid">
-                  <PhysicianProfileBanner
-                    data={adminPhysicianProfileData.profileBanner}
-                    clickEditProfile={isOpen => this.clickEditProfile(isOpen)}
-                  />
-
-                  <PhysicianAbout data={adminPhysicianProfileData.aboutBanner} />
-                </div>
-
-                <PhysicianUpcomingAppointment data={adminPhysicianProfileData.upcomingAppointment} />
-
-                {shownSidebar === 'Availability' && (
-                  <PhysicianAvailabilityRightSidebar data={adminPhysicianProfileData.availability} />
-                )}
-
-                {shownSidebar === 'EditProfile' && (
-                  <PhysicianEditProfile
-                    data={profileDataPrevious}
-                    clickConfirm={() => this.clickConfirmResetPassword()}
-                    saveUser={(data, isSave) => this.onSaveUser(data, isSave)}
-                  />
-                )}
-              </div>
+              {shownSidebar === 'EditProfile' && (
+                <PhysicianEditProfile
+                  data={profileDataPrevious}
+                  clickConfirm={() => this.clickConfirmResetPassword()}
+                  saveUser={(data, isSave) => this.onSaveUser(data, isSave)}
+                />
+              )}
             </div>
-          )}
-        </React.Fragment>
-      </React.Fragment>
+          </div>
+        )}
+      </>
     )
   }
 }
@@ -174,4 +176,4 @@ const matchDispatchToProps = dispatch => ({
   adminPhysicianProfileActions: bindActionCreators({ ...adminPhysicianProfileActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(AdminPhysicianProfile)
+export default connect(mapStateToProps, matchDispatchToProps)(withRouter(AdminPhysicianProfile))
