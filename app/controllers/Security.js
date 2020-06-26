@@ -34,7 +34,7 @@ async function login(req, res) {
  */
 async function sendVerificationCode(req, res) {
   await SecurityService.sendVerificationCode(req.query)
-  res.end()
+  res.status(200).end()
 }
 
 /**
