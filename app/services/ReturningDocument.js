@@ -1,4 +1,3 @@
-
 const joi = require('joi')
 const { BadRequest, NotFound, Forbidden } = require('http-errors')
 
@@ -20,7 +19,7 @@ const Appointment = require('../models/Appointment')
  * @param appointment the appointment
  * @return {Promise<void>}
  */
-async function createReturningDocument (appointment) {
+async function createReturningDocument(appointment) {
   const documents = []
   each(metadata, item => {
     documents.push({
@@ -28,14 +27,14 @@ async function createReturningDocument (appointment) {
       numberOfPage: item.numberOfPage,
       pages: [],
       name: item.name,
-      status: FormFileStatus.missing
+      status: FormFileStatus.missing,
     })
   })
   appointment.followUp = true
   appointment.returnDocuments = documents
 }
 
-async function checkAppointment (userId, id) {
+async function checkAppointment(userId, id) {
   const appointment = await Appointment.findById(id)
   if (!appointment) {
     throw new NotFound(`cannot find appointment where id = ${id}`)
@@ -53,7 +52,7 @@ async function checkAppointment (userId, id) {
  * @param entity the request entity
  * @return {Promise<void>}
  */
-async function uploadReturnDocumentPage (userId, id, entity) {
+async function uploadReturnDocumentPage(userId, id, entity) {
   const appointment = await checkAppointment(userId, id)
   const document = find(appointment.returnDocuments, d => d.id === entity.id)
   if (!document) {
@@ -81,7 +80,7 @@ async function uploadReturnDocumentPage (userId, id, entity) {
  * @param entity the request entity
  * @return {Promise<void>}
  */
-async function updateReturnDocumentPage (userId, id, entity) {
+async function updateReturnDocumentPage(userId, id, entity) {
   const appointment = await checkAppointment(userId, id)
   const document = find(appointment.returnDocuments, d => d.id === entity.id)
   if (!document) {
@@ -97,11 +96,17 @@ async function updateReturnDocumentPage (userId, id, entity) {
 updateReturnDocumentPage.schema = {
   userId: joi.string(),
   id: joi.string(),
-  entity: joi.object().keys({
-    id: joi.string().required(),
-    status: joi.string().valid(Object.values(FormFileStatus)).required(),
-    reason: joi.string()
-  }).required()
+  entity: joi
+    .object()
+    .keys({
+      id: joi.string().required(),
+      status: joi
+        .string()
+        .valid(Object.values(FormFileStatus))
+        .required(),
+      reason: joi.string(),
+    })
+    .required(),
 }
 
 /**
@@ -110,7 +115,7 @@ updateReturnDocumentPage.schema = {
  * @param patientId the patient id
  * @return {Promise<Array>}
  */
-async function getFollowUpAppointments (providerId, patientId) {
+async function getFollowUpAppointments(providerId, patientId) {
   const appointments = await searchEntities(models.Appointment, { providerId, patientId, followUp: true })
   return orderBy(appointments, ['endTime'], ['desc'])
 }
@@ -119,7 +124,7 @@ module.exports = {
   createReturningDocument,
   uploadReturnDocumentPage,
   updateReturnDocumentPage,
-  getFollowUpAppointments
+  getFollowUpAppointments,
 }
 
 logger.buildService(module.exports)

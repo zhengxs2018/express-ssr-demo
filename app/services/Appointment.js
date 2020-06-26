@@ -43,7 +43,7 @@ const moment = MomentRange.extendMoment(require('moment-timezone'))
  * @param {Object} user the user
  * @returns {Object} The created event
  */
-async function _createEventForUser (user, participants, when, guestName) {
+async function _createEventForUser(user, participants, when, guestName) {
   // Check if user is bound to Nylas
   await NylasService.isUserBoundToNylas(user)
 
@@ -57,7 +57,8 @@ async function _createEventForUser (user, participants, when, guestName) {
     util.format(config.MEETING_DESCRIPTION_TEMPLATE, getUserName(user), guestName),
     calendarId,
     participants,
-    when)
+    when
+  )
 }
 
 /**
@@ -66,7 +67,7 @@ async function _createEventForUser (user, participants, when, guestName) {
  * @param patient the patient
  * @param data the request data
  */
-async function checkAppointConflict (provider, patient, data) {
+async function checkAppointConflict(provider, patient, data) {
   let appointments = await searchEntities(Appointment, { providerId: provider.id })
   for (let i = 0; i < appointments.length; i++) {
     const when = appointments[i]
@@ -80,31 +81,38 @@ async function checkAppointConflict (provider, patient, data) {
   for (let i = 0; i < appointments.length; i++) {
     const appointment = await extendAppointment(appointments[i], provider)
     if ([AppointmentTypes.Ongoing, AppointmentTypes.Upcoming].includes(appointment.status)) {
-      throw new BadRequest(`You can only schedule one appointment at a time. Please cancel an appointment to re-schedule, or call the office at ${config.TEL_PHONE} for assistance`)
+      throw new BadRequest(
+        `You can only schedule one appointment at a time. Please cancel an appointment to re-schedule, or call the office at ${config.TEL_PHONE} for assistance`
+      )
     }
   }
 }
 
-async function sendNewAppointmentEmail (provider, patient, data) {
+async function sendNewAppointmentEmail(provider, patient, data) {
   // send email
-  const emailContent = util.format(config.APPOINTMENT_CONFIRM_EMAIL,
+  const emailContent = util.format(
+    config.APPOINTMENT_CONFIRM_EMAIL,
     getUserName(patient),
-    data.on, data.at,
-    getUserName(provider))
+    data.on,
+    data.at,
+    getUserName(provider)
+  )
   await sendEmail(config.APPOINTMENT_CONFIRM_SUBJECT, emailContent, [patient.email], null)
 }
 
-async function sendFollowUpAppointmentEmail (provider, patient, data) {
+async function sendFollowUpAppointmentEmail(provider, patient, data) {
   // send email
-  const emailContent = util.format(config.APPOINTMENT_FOLLOW_UP_EMAIL,
+  const emailContent = util.format(
+    config.APPOINTMENT_FOLLOW_UP_EMAIL,
     getUserName(patient),
-    data.on, data.at,
-    getUserName(provider))
-  const documentsPath = path.join(config.PATIENT_EMAIL_FILES,
-    '..',
-    'returning-documents')
+    data.on,
+    data.at,
+    getUserName(provider)
+  )
+  const documentsPath = path.join(config.PATIENT_EMAIL_FILES, '..', 'returning-documents')
   let attachments = fs.readdirSync(documentsPath).map(filename => ({
-    filename, path: path.join(documentsPath, filename)
+    filename,
+    path: path.join(documentsPath, filename),
   }))
   attachments = attachments.filter(attachment => !includes(['metadata.json', '.DS_Store'], attachment.filename))
   await sendEmail(config.get('APPOINTMENT_FOLLOW_UP_SUBJECT'), emailContent, [patient.email], null, attachments)
@@ -117,7 +125,7 @@ async function sendFollowUpAppointmentEmail (provider, patient, data) {
  * @param {Object} data The appointment data to create
  * @returns {Object} an object with the id of the created appointment
  */
-async function createAppointment (authUser, data) {
+async function createAppointment(authUser, data) {
   const { email } = authUser
   // Get the logged-in user entity from the database (The user who creates the appointment)
   let users = await searchEntities(User, { email })
@@ -126,8 +134,7 @@ async function createAppointment (authUser, data) {
   let provider
   let patient
 
-  if (includes(loggedInUser.roles, UserRoles.Admin) ||
-    includes(loggedInUser.roles, UserRoles.Secretary)) {
+  if (includes(loggedInUser.roles, UserRoles.Admin) || includes(loggedInUser.roles, UserRoles.Secretary)) {
     provider = await User.findById(data.providerId)
     patient = await User.findById(data.patientId)
     if (!provider) {
@@ -147,13 +154,11 @@ async function createAppointment (authUser, data) {
       throw new NotFound(`User with email ${data.inviteeEmail} does not exist`)
     }
     const invitee = users[0]
-    if (includes(loggedInUser.roles, UserRoles.Physician) &&
-      includes(invitee.roles, UserRoles.Physician)) {
+    if (includes(loggedInUser.roles, UserRoles.Physician) && includes(invitee.roles, UserRoles.Physician)) {
       // Both the logged in user and the invitee are providers
       throw new BadRequest(`A provider is not allowed to schedule an appointment with another provider`)
     }
-    if (includes(loggedInUser.roles, UserRoles.Patient) &&
-      includes(invitee.roles, UserRoles.Patient)) {
+    if (includes(loggedInUser.roles, UserRoles.Patient) && includes(invitee.roles, UserRoles.Patient)) {
       throw new BadRequest(`A patient is not allowed to schedule an appointment with another patient`)
     }
 
@@ -176,7 +181,7 @@ async function createAppointment (authUser, data) {
   // Construct the when parameter (with start/end times)
   const when = {
     start_time: moment(data.startTime).unix(),
-    end_time: moment(data.endTime).unix()
+    end_time: moment(data.endTime).unix(),
   }
 
   // Create the event for the Provider in Nylas
@@ -188,13 +193,13 @@ async function createAppointment (authUser, data) {
     status: AppointmentTypes.Upcoming,
     description: data.description || 'CONSULTATION',
     startTime: moment.unix(when.start_time).toDate(),
-    endTime: moment.unix(when.end_time).toDate()
+    endTime: moment.unix(when.end_time).toDate(),
   }
   // check is first appointment or follow up
   // because of patient only have one appointment in one time, so just need check the appointment count
   let appointments = await searchEntities(Appointment, {
     providerId: provider.id,
-    patientId: patient.id
+    patientId: patient.id,
   })
   if (appointments.length > 0) {
     await sendFollowUpAppointmentEmail(provider, patient, data)
@@ -218,8 +223,8 @@ createAppointment.schema = {
     providerId: Joi.string(),
     patientId: Joi.string(),
     at: Joi.string(),
-    on: Joi.string()
-  })
+    on: Joi.string(),
+  }),
 }
 
 /**
@@ -229,7 +234,7 @@ createAppointment.schema = {
  * @param {String} authUser the auth user
  * @param {String} query The appointment types to get, should be one of 'past', 'upcoming' or 'ongoing'
  */
-async function getAppointments (authUser, query) {
+async function getAppointments(authUser, query) {
   const email = authUser.email
   const { type, physicianId, patientId } = query
 
@@ -251,7 +256,7 @@ async function getAppointments (authUser, query) {
     case AppointmentTypes.Ongoing:
       searchCriteria = {
         starts_before: currentTimestamp,
-        ends_after: currentTimestamp
+        ends_after: currentTimestamp,
       }
       break
     default:
@@ -293,11 +298,11 @@ getAppointments.schema = {
     physicianId: Joi.string(),
     patientId: Joi.string(),
     type: Joi.string(),
-    limit: Joi.number()
-  })
+    limit: Joi.number(),
+  }),
 }
 
-async function extendAppointment (appointment, provider) {
+async function extendAppointment(appointment, provider) {
   const extendDescription = () => {
     let description = appointment.description
     if (
@@ -339,7 +344,7 @@ async function extendAppointment (appointment, provider) {
  * @param {Object} searchCriteria The events search criteria
  * @param query the query params
  */
-async function _getPatientAppointments (searchCriteria, query) {
+async function _getPatientAppointments(searchCriteria, query) {
   // Get the list of the patient appointments from the database
   const dbAppointments = await searchEntities(Appointment, searchCriteria)
   const result = []
@@ -350,7 +355,7 @@ async function _getPatientAppointments (searchCriteria, query) {
     let ap = await extendAppointment(appointment, provider)
     result.push({
       ...pick(ap, AppointmentFields),
-      provider: { ...pick(provider, constants.ProviderFields) }
+      provider: { ...pick(provider, constants.ProviderFields) },
     })
   }
   if (query.limit) {
@@ -366,7 +371,7 @@ async function _getPatientAppointments (searchCriteria, query) {
  * @param user the provider user
  * @returns an array of the user appointments with the corresponding calendar events
  */
-async function _formatProviderAppointments (events, user) {
+async function _formatProviderAppointments(events, user) {
   const appointments = []
   const localPatientMap = {}
   for (const event of events) {
@@ -385,13 +390,14 @@ async function _formatProviderAppointments (events, user) {
 
     const appointment = await extendAppointment(dbAppointments[0], user)
     const patientId = appointment.patientId
-    const patient = localPatientMap[patientId] || await User.findById(patientId)
+    const patient = localPatientMap[patientId] || (await User.findById(patientId))
     localPatientMap[patientId] = patient
     appointments.push({
       ...pick(appointment, AppointmentFields),
       patient: pick(patient.toJSON(), 'firstName', 'lastName', 'email', 'id', 'uid', 'headUrl'),
       current: moment.tz(moment(), user.providerInfo.timeZone),
-      ...{ event: res } })
+      ...{ event: res },
+    })
   }
   return appointments
 }
@@ -402,7 +408,7 @@ async function _formatProviderAppointments (events, user) {
  * @param appointmentId the appointment id
  * @returns {Promise<void>}
  */
-async function completedAppointment (userId, appointmentId) {
+async function completedAppointment(userId, appointmentId) {
   const appointment = await _checkAppointmentOwnership(appointmentId, userId, true)
   appointment.status = AppointmentTypes.Past
   await appointment.save()
@@ -415,7 +421,7 @@ async function completedAppointment (userId, appointmentId) {
  * @param query the request query
  * @returns {Promise<void>}
  */
-async function joinOrLeave (userId, appointmentId, query) {
+async function joinOrLeave(userId, appointmentId, query) {
   const appointment = await _checkAppointmentOwnership(appointmentId, userId, true)
   appointment.hostJoined = query.type === 'join'
   await appointment.save()
@@ -428,7 +434,7 @@ async function joinOrLeave (userId, appointmentId, query) {
  * @param {String} appointmentId The id of the appointment to update
  * @param {Object} data The data to use for updating the appointment
  */
-async function updateAppointment (authUser, appointmentId, data) {
+async function updateAppointment(authUser, appointmentId, data) {
   const { userId } = authUser
   const user = await User.findById(userId)
 
@@ -446,7 +452,8 @@ async function updateAppointment (authUser, appointmentId, data) {
   let providerNylasToken
   if (isProvider) {
     providerNylasToken = user.nylasAccessToken
-  } else { // The user is a patient, both roles are exclusive
+  } else {
+    // The user is a patient, both roles are exclusive
     // Get the provider to get its token
     const provider = await User.findById(appointment.providerId)
     providerNylasToken = provider.nylasAccessToken
@@ -458,7 +465,7 @@ async function updateAppointment (authUser, appointmentId, data) {
   // Construct the when parameter (with start/end times)
   const when = {
     start_time: moment(data.startTime, moment.ISO_8601).unix(),
-    end_time: moment(data.endTime, moment.ISO_8601).unix()
+    end_time: moment(data.endTime, moment.ISO_8601).unix(),
   }
 
   // Set the updated dates
@@ -485,7 +492,8 @@ async function updateAppointment (authUser, appointmentId, data) {
     // The user is a patient
     if (!isNil(data.meetingId) || !isNil(data.meetingPassword)) {
       throw new Forbidden(
-        `You are not allowed to update appointment meetingId/meeting password, Only providers can do it`)
+        `You are not allowed to update appointment meetingId/meeting password, Only providers can do it`
+      )
     }
   }
 
@@ -506,8 +514,8 @@ updateAppointment.schema = {
     title: Joi.string(),
     description: Joi.string(),
     meetingId: Joi.number(),
-    meetingPassword: Joi.string()
-  })
+    meetingPassword: Joi.string(),
+  }),
 }
 
 /**
@@ -517,7 +525,7 @@ updateAppointment.schema = {
  * @param {String} userId The id of the user to for whom to check the ownership
  * @param {Boolean} isProvider The flag indicating whether the user is a provider or no
  */
-async function _checkAppointmentOwnership (appointmentId, userId, isProvider) {
+async function _checkAppointmentOwnership(appointmentId, userId, isProvider) {
   // Find the appointment
   const appointment = await Appointment.findById(appointmentId)
   if (isNil(appointment)) {
@@ -525,14 +533,12 @@ async function _checkAppointmentOwnership (appointmentId, userId, isProvider) {
   }
 
   const user = await User.findById(userId)
-  if (includes(user.roles, UserRoles.Admin) ||
-    includes(user.roles, UserRoles.Secretary)) {
+  if (includes(user.roles, UserRoles.Admin) || includes(user.roles, UserRoles.Secretary)) {
     return appointment
   }
 
   // provider and patient roles are exclusive
-  if ((isProvider && appointment.providerId !== userId) ||
-        (!isProvider && appointment.patientId !== userId)) {
+  if ((isProvider && appointment.providerId !== userId) || (!isProvider && appointment.patientId !== userId)) {
     throw new Forbidden(`You are not allowed to update this appointment`)
   }
   return appointment
@@ -543,7 +549,7 @@ async function _checkAppointmentOwnership (appointmentId, userId, isProvider) {
  * @param id the id
  * @returns {Promise<void>}
  */
-async function getAppointment (id) {
+async function getAppointment(id) {
   const appointment = await Appointment.findById(id)
   if (!appointment) {
     throw new NotFound(`cannot find appointment where id = ${id}`)
@@ -558,7 +564,7 @@ async function getAppointment (id) {
  * @param id the appointment
  * @return {Promise<void>}
  */
-async function deleteAppointment (userId, id) {
+async function deleteAppointment(userId, id) {
   const appointment = await Appointment.findById(id)
   if (!appointment) {
     throw new NotFound(`cannot find appointment where id = ${id}`)
@@ -587,7 +593,7 @@ module.exports = {
   extendAppointment,
   getAppointment,
   deleteAppointment,
-  joinOrLeave
+  joinOrLeave,
 }
 
 logger.buildService(module.exports)
