@@ -9,14 +9,20 @@ const { writeFileSync } = require('fs')
 require('express-async-errors')
 
 const mkdirp = require('mkdirp')
+const dotenv = require('dotenv')
 
 const Joi = require('joi')
+
+// Load .env file
+dotenv.config()
 
 Joi.id = () => Joi.optionalId().required()
 
 // email is case insensitive, so lowercase it
-Joi.email = () => Joi.string().email().lowercase()
-
+Joi.email = () =>
+  Joi.string()
+    .email()
+    .lowercase()
 
 const env = process.env.NODE_ENV || 'development'
 

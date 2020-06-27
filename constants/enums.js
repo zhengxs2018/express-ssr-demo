@@ -50,6 +50,7 @@ const ConversationType = {
 }
 
 module.exports = {
+  ConversationType,
   VerificationCodeTypes,
   BooleanStrings,
   AppointmentTypes,

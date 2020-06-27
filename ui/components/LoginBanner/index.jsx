@@ -26,7 +26,7 @@ export default class LoginBanner extends Component {
                 <li>2.You consent to the system monitoring</li>
               </ul>
 
-              <a href="javascript:;" className="btn btn-blue" onClick={this.props.clickClose}>
+              <a className="btn btn-blue" onClick={this.props.clickClose}>
                 I acknowledge
               </a>
             </div>

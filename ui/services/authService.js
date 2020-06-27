@@ -1,25 +1,37 @@
+import isNil from 'lodash/isNil'
+import intersection from 'lodash/intersection'
+
+import { UserRoles } from '../../constants/access'
+
 import { Api } from './api'
 import { LStorage } from './utils'
 
 export const AUTH_KEY = 'O_AUTH_KEY'
 
-export const ROLES = {
-  Physician: 'Physician',
-}
+
 /**
  * auth service, include cache user
  */
 export default class AuthService {
+  static isLogged(){
+    return isNil(AuthService.getJwtToken()) === false
+  }
+
   /**
    * login api
    */
   static login(entity) {
     return Api.post('/login', entity).then(rsp => {
-      if (rsp.user?.roles.includes(ROLES.Physician)) {
+      const roles = rsp.user?.roles || []
+      if (roles.length > 0 && intersection(roles, [UserRoles.Physician, UserRoles.Admin])) {
         return rsp
       }
       throw new Error('Only physicians (providers) can login to the web portal')
     })
+  }
+
+  static getUser(){
+    return AuthService.getAuth().user
   }
 
   /**

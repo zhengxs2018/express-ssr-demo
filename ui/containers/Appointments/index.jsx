@@ -118,9 +118,9 @@ class Appointments extends Component {
               <div className="top-bar flex-grid">
                 <div className="lefts">OGNOMY</div>
                 <div className="rights flex">
-                  <a href="javascript:;" onClick={() => this.goto('/adminHome')}>
+                  {/* <a href="javascript:;" onClick={() => this.goto('/adminHome')}>
                     Admin page
-                  </a>
+                  </a> */}
                   <a href="javascript:;" className="icons btn-search" />
                   <div className="info-module">
                     <a href="javascript:;" className="icons btn-bell">

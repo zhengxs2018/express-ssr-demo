@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'next/router'
+
 import { toast } from 'react-toastify'
 import _ from 'lodash'
 import moment from 'moment'
@@ -131,7 +133,7 @@ class PatientDetails extends Component {
     super(props)
 
     this.state = {
-      userId: this.props.match.params.id,
+      userId: this.props.router.query.id,
       title: 'loading...',
       user: null,
 
@@ -822,4 +824,4 @@ const matchDispatchToProps = dispatch => ({
   appointmentActions: bindActionCreators({ ...appointmentActions }, dispatch),
 })
 
-export default connect(mapStateToProps, matchDispatchToProps)(PatientDetails)
+export default connect(mapStateToProps, matchDispatchToProps)(withRouter(PatientDetails))

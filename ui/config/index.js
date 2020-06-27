@@ -10,7 +10,7 @@
  * api base url
  * @type {string}
  */
-export const SERVER_URL = 'http://localhost:3000'
+export const SERVER_URL = process.env.NEXT_PUBLIC_API_PREFIX
 
 export const META = {
   PAGE_TITLE_SUFFIX: 'MVP Web',

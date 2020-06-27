@@ -52,8 +52,8 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error
   }
-
-  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
+  const port = config.get('LISTEN.port')
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
 
   // handle specific listen errors with friendly messages
   switch (error.code) {

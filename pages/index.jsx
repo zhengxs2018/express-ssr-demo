@@ -1,15 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+import React from 'react'
 
-function Home() {
+import Router from 'next/router'
+
+import AuthService from '../ui/services/authService'
+import ClientOnly from '../ui/components/ClientOnly'
+import Authorized from '../ui/components/Authorized'
+
+import { UserRoles } from '../constants/access'
+
+function Home(){
+  const user = AuthService.getUser()
+  if (user.roles.includes(UserRoles.Admin)) {
+    Router.replace('/adminHome')
+  } else {
+    Router.replace('/appointments')
+  }
+
+  return <div>Loading..</div>
+}
+
+function Welcome() {
   return (
-    <div className="mod-empty">
-      <p>no data, you could add one</p>
-      <Link href="/edit">
-        <a>add a post</a>
-      </Link>
-    </div>
+    <ClientOnly>
+      <Authorized roles={[UserRoles.Admin, UserRoles.Physician]}>
+        <Home></Home>
+      </Authorized>
+    </ClientOnly>
   )
 }
 
-export default Home
+export default Welcome

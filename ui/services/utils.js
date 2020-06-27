@@ -1,5 +1,8 @@
 import _ from 'lodash'
 import moment from 'moment'
+
+import isNil from 'lodash/isNil'
+
 import { BOD_FORMAT } from '../config'
 
 /**
@@ -9,6 +12,22 @@ export const LS_ACTIVE_APPOINTMENT = 'LS_ACTIVE_APPOINTMENT'
 
 export const NYLAS_RESULT = 'NYLAS_RESULT'
 
+export const IS_CLIENT = typeof window === 'object'
+
+const store = {
+  get(key) {},
+  set(key, value){},
+  remove(key){}
+}
+
+if (IS_CLIENT && window.localStorage) {
+  const localStorage = window.localStorage
+
+  store.get = key => localStorage.getItem(key)
+  store.set = (key, value) => localStorage.setItem(key, value)
+  store.remove = (key) => localStorage.removeItem(key)
+}
+
 /**
  * local storage warp
  */
@@ -16,10 +35,11 @@ export class LStorage {
   /**
    * set item
    * @param key the key
-   * @param v the value
+   * @param value the value
    */
-  static setItem(key, v) {
-    localStorage.setItem(key, JSON.stringify(v))
+  static setItem(key, value) {
+    if (isNil(value)) return store.remove(key)
+    return void store.set(key, JSON.stringify(value))
   }
 
   /**
@@ -30,14 +50,15 @@ export class LStorage {
    * @returns {string|any|{}}
    */
   static getItem(key, isObject = false, defaultValue = {}) {
-    const v = localStorage.getItem(key)
+    const value = store.get(key)
     if (isObject) {
       try {
-        return JSON.parse(v) || defaultValue
+        return JSON.parse(value.trim()) || defaultValue
       } catch (e) {
         return defaultValue
       }
     }
+
     return v
   }
 
@@ -46,7 +67,7 @@ export class LStorage {
    * @param key the key
    */
   static removeItem(key) {
-    localStorage.removeItem(key)
+    return void store.remove(key)
   }
 }
 

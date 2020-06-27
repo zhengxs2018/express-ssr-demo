@@ -22,7 +22,7 @@ function signUrl(Key) {
     return Key
   }
   return s3.getSignedUrl('getObject', {
-    Bucket: config.AWS_S3_BUCKET,
+    Bucket: config.get('AWS_S3_BUCKET'),
     Key,
     Expires: 60 * 60 * 24,
   })

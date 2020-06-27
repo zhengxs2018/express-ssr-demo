@@ -18,7 +18,8 @@
     "**/public/uploads/**": true
   },
   "cSpell.words": [
-    "Nylas",
+    "nylas",
+    "teleconsult",
     "ognomy",
     "staticfile"
   ],

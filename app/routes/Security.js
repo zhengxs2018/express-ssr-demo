@@ -3,25 +3,31 @@
 module.exports = {
   prefix: '/',
   endpoints: {
-    'login': {
+    health: {
+      get: {
+        handle: 'Security:ping',
+        public: true,
+      },
+    },
+    login: {
       post: {
         handle: 'Security:login',
         public: true,
       },
     },
-    'forgotPassword': {
+    forgotPassword: {
       post: {
         handle: 'Security:forgotPassword',
         public: true,
       },
     },
-    'sendVerificationCode': {
+    sendVerificationCode: {
       post: {
         handle: 'Security:sendVerificationCode',
         public: true,
       },
     },
-    'signup': {
+    signup: {
       post: {
         handle: 'Security:signup',
         public: true,

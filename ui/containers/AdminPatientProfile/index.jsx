@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import Link from 'next/link'
 import nprogress from 'nprogress'
 import adminPatientProfileActions from '../../actions/adminPatientProfileActions'
 import AdminLeftSidebar from '../../components/AdminLeftSidebar'
@@ -143,7 +143,9 @@ class AdminPatientProfile extends Component {
                 <div className="all-patients ">
                   <div className="top-bar flex-grid">
                     <div className="left-back">
-                      <NavLink to="/adminUsers" className="icons icon-back" />
+                      <Link href="/adminUsers">
+                        <a className="icons icon-back" ></a>
+                        </Link>
                       <span className="txt">All Patients</span>
                     </div>
                     <div className="rights flex">

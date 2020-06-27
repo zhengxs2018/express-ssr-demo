@@ -13,6 +13,7 @@ import AddUserRightSidebar from '../../components/AdminUser/AddUserRightSidebar'
 import PhysicianEditProfile from '../../components/AdminUser/PhysicianEditProfile'
 import TopInfoBar from '../../components/AdminUser/TopInfoBar'
 import ModalWindowConfirm from '../../components/AdminUser/ModalWindowConfirm'
+
 import './styles.scss'
 
 class AdminUsers extends Component {

@@ -1,0 +1,465 @@
+[
+  {
+    "id": 1,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What's your full name?"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "handler": [
+      "user.name"
+    ],
+    "minLen": 2,
+    "inputType": "letters",
+    "next": 1.1
+  },
+  {
+    "id": 1.1,
+    "messages": [
+      {
+        "type": "text",
+        "content": "And don't worry! If you make a mistake while I'm collecting your information, you'll have a chance to review and fix everything in your own personal profile screen. We'll show that to you later. Our staff will also review your profile and will contact you with any questions."
+      }
+    ],
+    "skipAnswer": true,
+    "next": 2
+  },
+  {
+    "id": 2,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What is your street address?"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "handler": [
+      "user.address"
+    ],
+    "minLen": 2,
+    "inputType": "letters",
+    "next": 90
+  },
+  {
+    "id": 90,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What is your city?"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "minLen": 2,
+    "inputType": "letters",
+    "handler": [
+      "user.city"
+    ],
+    "next": 91
+  },
+  {
+    "id": 91,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What is your state (enter the 2-letter code) ?"
+      }
+    ],
+    "validate": [
+      "required",
+      "state"
+    ],
+    "handler": [
+      "user.state"
+    ],
+    "next": 92
+  },
+  {
+    "id": 92,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What is your zip code?"
+      }
+    ],
+    "validate": [
+      "required",
+      "number",
+      "zipcode"
+    ],
+    "handler": [
+      "user.zipcode"
+    ],
+    "next": 101
+  },
+  {
+    "id": 101,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What's your gender?"
+      },
+      {
+        "type": "button",
+        "content": "Male",
+        "next": 102
+      },
+      {
+        "type": "button",
+        "content": "Female",
+        "next": 102
+      },
+      {
+        "type": "button",
+        "content": "Other",
+        "next": 102
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "enum": [
+      "Male",
+      "Female",
+      "Other"
+    ],
+    "handler": [
+      "user.gender"
+    ],
+    "next": 102
+  },
+  {
+    "id": 102,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What's your birthday(MM/DD/YYYY)?"
+      }
+    ],
+    "validate": [
+      "required",
+      "MM/DD/YYYY-DOB"
+    ],
+    "handler": [
+      "user.dateOfBirth"
+    ],
+    "next": 103
+  },
+  {
+    "id": 103,
+    "messages": [
+      {
+        "type": "text",
+        "content": "What is your phone number with area code? Numbers only please."
+      }
+    ],
+    "validate": [
+      "required",
+      "number",
+      "phone"
+    ],
+    "handler": [
+      "user.phone"
+    ],
+    "next": 3
+  },
+  {
+    "id": 3,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Please upload your photo"
+      },
+      {
+        "type": "button",
+        "content": "Select photo",
+        "next": 4
+      },
+      {
+        "type": "button",
+        "content": "Take a new photo",
+        "next": 4
+      },
+      {
+        "type": "link",
+        "content": "View photo guideline"
+      }
+    ],
+    "validate": [
+      "file"
+    ],
+    "handler": [
+      "user.headUrl"
+    ],
+    "next": 4
+  },
+  {
+    "id": 4,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Awesome, thank you"
+      }
+    ],
+    "skipAnswer": true,
+    "next": 6
+  },
+  {
+    "id": 6,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Do you have insurance info to provide?"
+      },
+      {
+        "type": "button",
+        "content": "Yes",
+        "next": 7
+      },
+      {
+        "type": "button",
+        "content": "No",
+        "next": 20
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "enum": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "id": 7,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Insurance carrier"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "handler": [
+      "user.insuranceCards.insuranceCarrier"
+    ],
+    "next": 8
+  },
+  {
+    "id": 8,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Plan number"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "handler": [
+      "user.insuranceCards.planNumber"
+    ],
+    "next": 10
+  },
+  {
+    "id": 10,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Insured's name"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "handler": [
+      "user.insuranceCards.insuredName"
+    ],
+    "next": 11
+  },
+  {
+    "id": 11,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Insured's identification number"
+      }
+    ],
+    "validate": [
+      "required",
+      "number"
+    ],
+    "handler": [
+      "user.insuranceCards.insuredID"
+    ],
+    "next": 12
+  },
+  {
+    "id": 12,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Effective date of coverage(MM/DD/YYYY)"
+      }
+    ],
+    "validate": [
+      "required",
+      "MM/DD/YYYY"
+    ],
+    "handler": [
+      "user.insuranceCards.effectiveDate"
+    ],
+    "next": 104
+  },
+  {
+    "id": 104,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Please upload your card front photo"
+      },
+      {
+        "type": "button",
+        "content": "Select photo",
+        "next": 105
+      },
+      {
+        "type": "button",
+        "content": "Take a new photo",
+        "next": 105
+      }
+    ],
+    "validate": [
+      "file"
+    ],
+    "handler": [
+      "user.insuranceCards.frontPhoto"
+    ]
+  },
+  {
+    "id": 105,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Please upload your card back photo"
+      },
+      {
+        "type": "button",
+        "content": "Select photo",
+        "next": 14
+      },
+      {
+        "type": "button",
+        "content": "Take a new photo",
+        "next": 14
+      }
+    ],
+    "validate": [
+      "file"
+    ],
+    "handler": [
+      "user.insuranceCards.backPhoto"
+    ]
+  },
+  {
+    "id": 14,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Patient's relationship to the insured"
+      },
+      {
+        "type": "button",
+        "content": "Parent"
+      },
+      {
+        "type": "button",
+        "content": "Child"
+      },
+      {
+        "type": "button",
+        "content": "Spouse"
+      },
+      {
+        "type": "button",
+        "content": "Other"
+      },
+      {
+        "type": "button",
+        "content": "Self"
+      }
+    ],
+    "validate": [
+      "required"
+    ],
+    "enum": [
+      "Parent",
+      "Child",
+      "Spouse",
+      "Other",
+      "Self"
+    ],
+    "handler": [
+      "user.insuranceCards.relationship"
+    ],
+    "next": 16
+  },
+  {
+    "id": 16,
+    "messages": [
+      {
+        "type": "text",
+        "content": "You can add additional insurance information to your profile later."
+      }
+    ],
+    "skipAnswer": true,
+    "next": 20
+  },
+  {
+    "id": 20,
+    "messages": [
+      {
+        "type": "text",
+        "content": "There are a couple new patient forms that need to be completed, but you don’t have to work on it right now"
+      },
+      {
+        "type": "button",
+        "content": "Email me the forms",
+        "next": 21
+      }
+    ],
+    "handler": [
+      "user.sendForm"
+    ],
+    "enum": "Email me the forms"
+  },
+  {
+    "id": 21,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Sure thing, email has been sent"
+      }
+    ],
+    "skipAnswer": true,
+    "next": 22
+  },
+  {
+    "id": 22,
+    "messages": [
+      {
+        "type": "text",
+        "content": "Are you ready? Let’s schedule your first appointment"
+      }
+    ],
+    "last": true
+  }
+]

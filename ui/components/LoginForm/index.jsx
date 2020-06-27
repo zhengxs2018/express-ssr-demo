@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import './styles.scss'
 import { toast } from 'react-toastify'
+
+import Router from 'next/router'
+
+import { UserRoles } from '../../../constants/access'
+
 import AuthService, { AUTH_KEY } from '../../services/authService'
 import { LStorage, NYLAS_RESULT } from '../../services/utils'
+
+import './styles.scss'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -148,16 +154,24 @@ class LoginForm extends Component {
         password: this.state.selectedValue.password,
       })
         .then(rsp => {
-          if (!this.checkUserStatus(rsp)) {
-            return
-          }
+          const isAdmin =  rsp.user.roles.includes(UserRoles.Admin)
+
+          // if (!isAdmin && !this.checkUserStatus(rsp)) {
+          //   return
+          // }
+
           LStorage.setItem(AUTH_KEY, rsp)
           this.setState({
             showErrorText: false,
             showEmailError: false,
             showPasswordError: false,
           })
-          this.props.history.push('/appointments')
+
+          if (isAdmin) {
+            return Router.replace('/adminHome')
+          } else {
+            return Router.replace('/appointments')
+          }
         })
         .catch(err => {
           this.setState({
@@ -254,7 +268,7 @@ class LoginForm extends Component {
             onChange={this.handleInputChange('password')}
           />
         </div>
-        <a href="javascript:;" className="btn btn-blue" onClick={this.clickLogin}>
+        <a className="btn btn-blue" onClick={this.clickLogin}>
           Log in
         </a>
 
