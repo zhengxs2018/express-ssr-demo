@@ -19,7 +19,7 @@ async function checkPwd(userId) {
   const ret = { passwordDays: 0, isNeedChangePassword: false, isNeedWarnPassword: false }
 
   if (!record) {
-    // await PWDRecord.create({ userId, createdAt: new Date() })
+    await PWDRecord.create({ userId, createdAt: new Date() })
     return ret
   }
 
