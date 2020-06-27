@@ -1,12 +1,7 @@
 /**
  * update patient new forms
  */
-const extend = require('lodash/extend')
-
 const logger = require('../app/lib/logger')
-const { hashPassword } = require('../app/lib/utils')
-
-const { UserRoles } = require('../constants/access')
 
 const connectDB = require('../database/connect')
 const searchEntities = require('../database/helpers/searchEntities')
