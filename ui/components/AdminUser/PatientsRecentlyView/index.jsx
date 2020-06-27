@@ -57,9 +57,7 @@ class PatientsRecentlyView extends Component {
               <div className="items" key={index}>
                 <div className="hover-blue">
                   <Link href="/adminPatientProfile">
-                    <a className="btn btn-border">
-                    View Profile
-                    </a>
+                    <a className="btn btn-border">View Profile</a>
                   </Link>
                   <div className="bottom-tools">
                     <a href="javascript:;" className="icons icon-edit" />

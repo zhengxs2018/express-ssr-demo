@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 
 import { UserRoles } from '../../constants/access'
@@ -12,7 +10,7 @@ import PatientDetails from '../../ui/containers/Patients/details'
 const PatientDetailsPage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Physician]} >
+      <Authorized roles={[UserRoles.Physician]}>
         <PatientDetails></PatientDetails>
       </Authorized>
     </ClientOnly>

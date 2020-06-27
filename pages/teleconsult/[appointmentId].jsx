@@ -10,7 +10,7 @@ import Teleconsult from '../../ui/containers/Teleconsult'
 const TeleconsultPage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Physician]} >
+      <Authorized roles={[UserRoles.Physician]}>
         <Teleconsult></Teleconsult>
       </Authorized>
     </ClientOnly>

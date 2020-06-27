@@ -125,9 +125,7 @@ export default class DeleteHistoryTable extends Component {
             <div className="row-td" key={index}>
               <div className="col-td">
                 <Link href="/adminPatientProfile">
-                  <a className="spacing" >
-                    {item.name}
-                  </a>
+                  <a className="spacing">{item.name}</a>
                 </Link>
               </div>
               <div className="col-td">

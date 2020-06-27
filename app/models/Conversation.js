@@ -12,7 +12,7 @@ const schema = new Schema({
   messages: [String],
   patientId: String,
   hasAttachments: { type: Boolean, default: false },
-  weight: Number
+  weight: Number,
 })
 
 schema.plugin(fieldEncryption, {

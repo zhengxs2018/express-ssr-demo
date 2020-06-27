@@ -10,7 +10,7 @@ import AdminUsers from '../ui/containers/AdminUsers'
 const AdminUsersPage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Admin]} >
+      <Authorized roles={[UserRoles.Admin]}>
         <AdminUsers></AdminUsers>
       </Authorized>
     </ClientOnly>

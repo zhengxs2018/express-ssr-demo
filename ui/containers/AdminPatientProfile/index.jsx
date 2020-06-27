@@ -144,8 +144,8 @@ class AdminPatientProfile extends Component {
                   <div className="top-bar flex-grid">
                     <div className="left-back">
                       <Link href="/adminUsers">
-                        <a className="icons icon-back" ></a>
-                        </Link>
+                        <a className="icons icon-back"></a>
+                      </Link>
                       <span className="txt">All Patients</span>
                     </div>
                     <div className="rights flex">

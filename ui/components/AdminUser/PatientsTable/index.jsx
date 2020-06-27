@@ -200,17 +200,13 @@ export default class PatientsTable extends Component {
               <div className="col-td">
                 <div className="spacing">
                   {type === 'Patient' && (
-                    <Link href="/adminPatientProfile" >
-                      <a className="blue-links">
-                      {item.name}
-                      </a>
+                    <Link href="/adminPatientProfile">
+                      <a className="blue-links">{item.name}</a>
                     </Link>
                   )}
                   {type !== 'Patient' && (
                     <Link href={`/adminPhysicianProfile/${type}`}>
-                      <a className="blue-links">
-                      {item.name}
-                      </a>
+                      <a className="blue-links">{item.name}</a>
                     </Link>
                   )}
                 </div>

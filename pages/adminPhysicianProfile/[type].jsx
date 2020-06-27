@@ -10,7 +10,7 @@ import AdminPhysicianProfile from '../../ui/containers/AdminPhysicianProfile'
 const AdminPhysicianProfilePage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Admin]} >
+      <Authorized roles={[UserRoles.Admin]}>
         <AdminPhysicianProfile></AdminPhysicianProfile>
       </Authorized>
     </ClientOnly>

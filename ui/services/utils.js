@@ -16,8 +16,8 @@ export const IS_CLIENT = typeof window === 'object'
 
 const store = {
   get(key) {},
-  set(key, value){},
-  remove(key){}
+  set(key, value) {},
+  remove(key) {},
 }
 
 if (IS_CLIENT && window.localStorage) {
@@ -25,7 +25,7 @@ if (IS_CLIENT && window.localStorage) {
 
   store.get = key => localStorage.getItem(key)
   store.set = (key, value) => localStorage.setItem(key, value)
-  store.remove = (key) => localStorage.removeItem(key)
+  store.remove = key => localStorage.removeItem(key)
 }
 
 /**

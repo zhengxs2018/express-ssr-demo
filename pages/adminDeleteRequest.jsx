@@ -10,7 +10,7 @@ import AdminDeleteRequest from '../ui/containers/AdminDeleteRequest'
 const AdminDeleteRequestPage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Admin]} >
+      <Authorized roles={[UserRoles.Admin]}>
         <AdminDeleteRequest></AdminDeleteRequest>
       </Authorized>
     </ClientOnly>

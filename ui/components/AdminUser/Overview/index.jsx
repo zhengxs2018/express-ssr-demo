@@ -49,7 +49,7 @@ const Overview = ({ data }) => {
         </div>
       </div>
       <Link href="/adminDeleteRequest">
-        <a className="items" >
+        <a className="items">
           <div className="top-icon">
             <i className="icons icon-del-file" />
           </div>

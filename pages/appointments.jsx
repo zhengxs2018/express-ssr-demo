@@ -10,7 +10,7 @@ import Appointments from '../ui/containers/Appointments'
 const AppointmentsPage = () => {
   return (
     <ClientOnly>
-      <Authorized roles={[UserRoles.Physician]} >
+      <Authorized roles={[UserRoles.Physician]}>
         <Appointments></Appointments>
       </Authorized>
     </ClientOnly>

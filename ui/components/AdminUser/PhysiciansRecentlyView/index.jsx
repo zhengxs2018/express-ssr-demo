@@ -11,10 +11,10 @@ const PhysiciansRecentlyView = ({ type, data }) => {
     <div className="panel-list physicians-list">
       <div className="list-title flex-grid ">
         5 {type !== 'Secretary' ? type : 'Secretarie'}s
-          <div className="drop-area hide">
+        <div className="drop-area hide">
           <a href="javascript:;" className="drop-btn">
             Sort by Name
-              <i className="icons icon-drop" />
+            <i className="icons icon-drop" />
           </a>
         </div>
       </div>
@@ -24,16 +24,12 @@ const PhysiciansRecentlyView = ({ type, data }) => {
             <div className="hover-blue">
               {type === 'Patient' && (
                 <Link href="/adminPatientProfile">
-                  <a className="btn btn-border">
-                    View Profile
-                    </a>
+                  <a className="btn btn-border">View Profile</a>
                 </Link>
               )}
               {type !== 'Patient' && (
                 <Link href={`/adminPhysicianProfile/${type}`}>
-                  <a className="btn btn-border">
-                    View Profile
-                    </a>
+                  <a className="btn btn-border">View Profile</a>
                 </Link>
               )}
               <div className="bottom-tools">

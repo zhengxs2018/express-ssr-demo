@@ -15,7 +15,7 @@ class AdminLeftSidebar extends Component {
 
     this.state = {
       name: `${user?.firstName} ${user?.lastName}`,
-      user
+      user,
     }
   }
 

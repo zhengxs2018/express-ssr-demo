@@ -12,7 +12,7 @@ const defineModel = require('../../database/model')
 const schema = new Schema({
   userId: String,
   key: String,
-  slots: [{ start: String, end: String }]
+  slots: [{ start: String, end: String }],
 })
 
 schema.plugin(fieldEncryption, {

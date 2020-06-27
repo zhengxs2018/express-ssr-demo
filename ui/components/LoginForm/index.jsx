@@ -154,7 +154,7 @@ class LoginForm extends Component {
         password: this.state.selectedValue.password,
       })
         .then(rsp => {
-          const isAdmin =  rsp.user.roles.includes(UserRoles.Admin)
+          const isAdmin = rsp.user.roles.includes(UserRoles.Admin)
 
           // if (!isAdmin && !this.checkUserStatus(rsp)) {
           //   return

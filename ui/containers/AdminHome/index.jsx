@@ -58,8 +58,8 @@ class AdminHome extends Component {
             <div className="top-bar flex-grid">
               <div className="lefts">
                 <i className="icons icon-logo" />
-                  OGNOMY
-                </div>
+                OGNOMY
+              </div>
               <div className="rights flex">
                 <a href="javascript:;" className="icons btn-search" />
                 <div className="info-module">

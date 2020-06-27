@@ -8,12 +8,11 @@ import { LStorage } from './utils'
 
 export const AUTH_KEY = 'O_AUTH_KEY'
 
-
 /**
  * auth service, include cache user
  */
 export default class AuthService {
-  static isLogged(){
+  static isLogged() {
     return isNil(AuthService.getJwtToken()) === false
   }
 
@@ -30,7 +29,7 @@ export default class AuthService {
     })
   }
 
-  static getUser(){
+  static getUser() {
     return AuthService.getAuth().user
   }
 

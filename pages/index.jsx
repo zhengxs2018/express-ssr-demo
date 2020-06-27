@@ -8,7 +8,7 @@ import Authorized from '../ui/components/Authorized'
 
 import { UserRoles } from '../constants/access'
 
-function Home(){
+function Home() {
   const user = AuthService.getUser()
   if (user.roles.includes(UserRoles.Admin)) {
     Router.replace('/adminHome')
